@@ -1,0 +1,30 @@
+[PROJECT]
+Target=Comunicación Serie.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.076
+Compiler=PCM
+[Target Data]
+FileList=Comunicación Serie.c
+[Comunicación Serie.c]
+Type=4
+[mru-list]
+1=Comunicación Serie.c
+
+[defines]
+buildcount=3
+
+[ProjectLog]
+Days=1
+D1=18-12-2018
+D1_L=3
+D1_L1=[50378]Stopped Editing.
+D1_L2=[52190]Started Editing.
+D1_L3=[52492]Stopped Editing.
+
+[Opened Files]
+1=Comunicación Serie.c
+t1=21
+Count=1
+[Units]
+Count=1
+1=Comunicación Serie (main)

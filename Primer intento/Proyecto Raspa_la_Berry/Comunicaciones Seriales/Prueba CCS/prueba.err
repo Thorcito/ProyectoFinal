@@ -1,0 +1,11 @@
+Compiling D:\TEC\2022\I_Semestre_2022_semipresencial\Microprocesadores_y_Microcontroladores\Evaluaciones\Proyectos\Proyecto Microprocesador\Entrega final\Comunicaciones Seriales\Prueba CCS\prueba on 15-Jun-22 at 01:08
+>>> Warning 216 "prueba.c" Line 72(1,2): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+>>> Warning 216 "prueba.c" Line 72(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_send_nibble)
+>>> Warning 216 "prueba.c" Line 72(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_send_byte)
+>>> Warning 216 "prueba.c" Line 72(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_putc)
+>>> Warning 202 "prueba.c" Line 11(6,16): Variable never used:   bit_sensor
+>>> Warning 202 "prueba.c" Line 12(5,11): Variable never used:   sensor
+>>> Warning 202 "prueba.c" Line 13(5,6): Variable never used:   i
+      Memory usage:   ROM=8%      RAM=6% - 13%
+      0 Errors,  7 Warnings.
+Build Successful.

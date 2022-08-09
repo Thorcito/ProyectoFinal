@@ -1,0 +1,29 @@
+Función VerPerro(startWatchdog)
+	obtiene imagen de la cámara
+	procesa colores
+	set color objetivo		
+	
+	endWatchdog()
+		si botón detener es verdadero
+			return mover torreta a posición inicial 
+	
+	buscarObjetivo(imagenCamara)
+		if colorObjetivo in imagenCamara
+			print(persiguiendo)
+			if ubicaciónCanon = ubicacionObjetivo
+				print(en mira)
+				disparar()
+			else
+				print(persiguiendo) #continúa persiguiendo objetivo			
+		else
+			# detener perseguirObjetivo() opcional
+			print(perdido)
+			return buscarObjetivo()				
+
+	generarInstruccion()
+		por medio de variables dinámicas almacenadas en listas
+		posiblemente en una RAM, se verfica el estado de cada función 
+		con un while para obtener la instrucción y se almacene en el txt.		
+	
+	
+	

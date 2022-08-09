@@ -1,0 +1,4 @@
+--- Info 300 "Servo1.c" Line 68(1,2): More info:   * Access violation at address 09C1B444 in module 'PCM.dll'. Read of address 06938A52
+*** Error 44 "Servo1.c" Line 68(1,2): Internal Error - Contact CCS  OUTPUT FILE .cof
+      1 Errors,  0 Warnings.
+Build Failed.

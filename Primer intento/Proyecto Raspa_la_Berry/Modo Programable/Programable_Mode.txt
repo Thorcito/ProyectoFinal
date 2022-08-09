@@ -1,0 +1,38 @@
+
+función programable()
+	open txt file
+	lee el txt linea por linea
+		
+
+
+#Instrucciones
+moverMotor1(x,y,z) #Eje
+	move x, y, z
+
+moverMotor2(x,y,z) #Base
+	sobre x, muévase a x, sobre y, muévase a y, sobre z, muévase a z
+
+#El movimiento puede ser por servomotor
+	
+pausa(segundos)
+	inicializar CLK
+	contador que lee cantidad de segundos
+
+regresarReposo()
+	#asumiendo posicion inicial x=0, y=0 y z=0
+	moverMotor1(0,0,0)
+	moverMotor2(0,0,0)	
+
+disparoCanon()
+	if fire = true
+		laser.status("on") #enviar señal al módulo láser
+	else
+		laser.status("off")
+		
+apuntarVertical()
+	servomotor totalmente en "y" positivo
+	solo se usa moverMotor1
+
+posicionCardinal()
+	depende del movimiento de los motores
+

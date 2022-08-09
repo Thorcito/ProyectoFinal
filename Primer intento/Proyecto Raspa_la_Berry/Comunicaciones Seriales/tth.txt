@@ -1,0 +1,5 @@
+Raspberry OS
+RS-232
+PIC 16F877A
+
+UART son las siglas de "Universal Asynchronous Receiver-Transmitter". Éste controla los puertos y dispositivos serie. Se encuentra integrado en la placa base o en la tarjeta adaptadora del dispositivo. Un UART dual, o DUART, combina dos UARTs en un solo chip. Existe un dispositivo electrónico encargado de generar la UART en cada puerto serie. Las funciones principales de chip UART son de manejar las interrupciones de los dispositivos conectados al puerto serie y de convertir los datos en formato paralelo, transmitidos al bus de sistema, a datos en formato serie, para que puedan ser transmitidos a través de los puertos y viceversa

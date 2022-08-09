@@ -1,0 +1,29 @@
+#INCLUDE <16f887.h>
+#device adc=10
+#USE DELAY(CRYSTAL=4000000)
+#FUSES XT,NOPROTECT,NOWDT,NOBROWNOUT,NOPUT,NOLVP
+#use rs232(baud=9600, xmit=pin_c6, rcv=pin_c7, bits=8)
+
+#BYTE PORTA= 5
+#BYTE PORTD= 8
+
+long bits;     //Variable almacena los bits
+float tem;     //Almacena la temperatura
+
+void main()
+{
+   set_tris_a(0b00000001);          //Pongo el RA0 como entrada
+   setup_adc_ports(all_analog);     //Pongo todo el puerto a analogo
+   setup_adc(adc_clock_internal);   //Selecciono reloj interno para conversion
+   
+   while(1)
+   {
+       set_adc_channel(0);          //Selecciono el canal 0 (RA0)
+       delay_ms(1);                 //llamo retardo de 1 ms
+       bits=read_adc();             //Guarde el dato del LM en tempe
+       
+       tem=bits*0.4882;              //Conversion de bits a temperatura
+       printf("\rLa Temperatura es: %2.3f C\r\n",tem);
+       delay_ms(1000);
+   }
+}

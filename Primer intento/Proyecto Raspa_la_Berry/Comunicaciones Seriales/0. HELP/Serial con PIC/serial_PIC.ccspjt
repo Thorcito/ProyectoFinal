@@ -1,0 +1,17 @@
+[PROJECT]
+Target=serial_PIC.hex
+Processor_Text=PIC16F887
+CCSVersion=5.076
+Compiler=PCM
+[Target Data]
+FileList=serial_PIC.c
+[serial_PIC.c]
+Type=4
+[mru-list]
+1=serial_PIC.c
+[Units]
+Count=1
+1=serial_PIC (main)
+
+[defines]
+buildcount=1

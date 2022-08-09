@@ -1,0 +1,104 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+005     PORTA
+008     PORTD
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-021 bits
+022-025 tem
+026     @PSTRINGCN7_9600_62_63.P1
+026-029 @PRINTF_L32D_9600_62_63FPFPF.P2
+026-027 @ITOF.P3
+026     main.@SCRATCH1
+027     @delay_ms1.P1
+027     @PSTRINGCN7_9600_62_63.@SCRATCH1
+028     @PSTRINGCN7_9600_62_63.@SCRATCH2
+029     @PSTRINGCN7_9600_62_63.@SCRATCH3
+02A     @PRINTF_L32D_9600_62_63FPFPF.P1
+02A     @PSTRINGCN7_9600_62_63.@SCRATCH4
+02B     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH1
+02C     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH2
+02D     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH3
+02E     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH4
+02F     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH5
+030     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH6
+031     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH7
+032     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH8
+033-036 @MULFF.P1
+033-036 @FTOSD.P2
+033-036 @DIV3232.P3
+037-03A @DIV3232.P1
+037-03A @MULFF.P2
+037     @FTOSD.@SCRATCH1
+03B     @MULFF.@SCRATCH1
+03B     @DIV3232.@SCRATCH1
+03C     @MULFF.@SCRATCH2
+03C     @DIV3232.@SCRATCH2
+03D     @MULFF.@SCRATCH3
+03D     @DIV3232.@SCRATCH3
+03E     @MULFF.@SCRATCH4
+03E     @DIV3232.@SCRATCH4
+03F     @MULFF.@SCRATCH5
+03F     @DIV3232.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const659.call
+000013  @delay_ms1
+000028  @ITOF
+000047  @MULFF
+0000BC  @PSTRINGCN7_9600_62_63
+000115  @DIV3232
+000164  @PRINTF_L32D_9600_62_63FPFPF
+00018B  @FTOSD
+00024A  main
+00024A  @cinit1
+000267  @cinit2
+
+Project Directory:
+    C:\Users\Sergio\Google Drive\Projects\Serial con PIC\
+
+Project Files:
+    serial_PIC.c                                            [12-Oct-20 17:53  CRC=24ADE949]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16f887.h [15-Jan-18 15:53  CRC=9C71CB72]
+
+Source signature=5D91802D
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=DF67
+
+Units:
+    serial_PIC (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   serial_PIC.xsym
+    Errors:      serial_PIC.err
+    Ext Symbols: serial_PIC.esym
+    INHX8:       serial_PIC.hex
+    Symbols:     serial_PIC.sym
+    List:        serial_PIC.lst
+    Debug/COFF:  serial_PIC.cof
+    Project:     serial_PIC.ccspjt
+    Call Tree:   serial_PIC.tre
+    Statistics:  serial_PIC.STA

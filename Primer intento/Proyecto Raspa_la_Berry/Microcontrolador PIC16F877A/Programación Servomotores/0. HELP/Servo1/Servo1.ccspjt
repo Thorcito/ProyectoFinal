@@ -1,0 +1,41 @@
+[PROJECT]
+Target=Servo1.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.059
+Compiler=PCM
+[Target Data]
+FileList=Servo1.c
+[Servo1.c]
+Type=4
+[mru-list]
+1=Servo1.c
+
+[defines]
+buildcount=19
+
+[Opened Files]
+1=..\Servo2\Servo2.c
+t1=1
+Count=1
+2=..\Servo2\Servo2.c
+t2=46
+
+[ProjectLog]
+Days=2
+D1=07-07-2018
+D1_L=4
+D1_L1=[38526]Stopped Editing.
+D1_L2=[38611]Started Editing.
+D1_L3=[38901]Stopped Editing.
+TotalEdit=53
+TotalDebug=0
+D1_E=53
+D1_D=0
+D1_L4=[38901]Project Closed.
+D2=09-07-2018
+D2_L=2
+D2_L1=[63909]Project Opened.
+D2_L2=[63986]Project Closed.
+[Units]
+Count=1
+1=Servo1 (main)

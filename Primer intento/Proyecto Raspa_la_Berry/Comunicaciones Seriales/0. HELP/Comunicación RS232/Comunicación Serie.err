@@ -1,0 +1,7 @@
+Compiling D:\PC - Jorge Peralta\KOKO\Electrónica\Proyecto  PIC\CCS\PIC16F877A\Comunicación RS232\Comunicación Serie on 18-Dic.-18 at 14:29
+>>> Warning 216 "Comunicación Serie.c" Line 39(4,5): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+>>> Warning 216 "Comunicación Serie.c" Line 39(4,5): Interrupts disabled during call to prevent re-entrancy:  (lcd_send_nibble)
+>>> Warning 216 "Comunicación Serie.c" Line 39(4,5): Interrupts disabled during call to prevent re-entrancy:  (lcd_send_byte)
+      Memory usage:   ROM=6%      RAM=5% - 11%
+      0 Errors,  3 Warnings.
+Build Successful.

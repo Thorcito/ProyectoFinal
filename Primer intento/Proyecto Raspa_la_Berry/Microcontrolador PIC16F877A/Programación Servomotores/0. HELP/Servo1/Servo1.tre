@@ -1,0 +1,10 @@
+ÀÄServo1
+   ÀÄmain  0/21  Ram=0
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÀÄgira  0/763  Ram=11
+         ÃÄ@MULFF  (Inline)  Ram=13
+         ÃÄ@DIVFF  (Inline)  Ram=14
+         ÃÄ@ADDFF  (Inline)  Ram=16
+         ÃÄ@SFTOI  (Inline)  Ram=4
+         ÃÄ@delay_us1  0/17  Ram=1
+         ÀÄ@delay_us1  0/17  Ram=1

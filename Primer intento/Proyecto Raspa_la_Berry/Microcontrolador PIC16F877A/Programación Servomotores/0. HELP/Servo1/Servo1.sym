@@ -1,0 +1,96 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+021-024 gira.grados
+025     gira.i
+026     gira.valor1
+027     gira.valor2
+028-02B @SFTOI.P1
+028     @delay_us1.P2
+028-02B @MULFF.P3
+028     gira.@SCRATCH1
+029     gira.@SCRATCH2
+02A     gira.@SCRATCH3
+02B     gira.@SCRATCH4
+02C-02F @MULFF.P1
+02C-02F @DIVFF.P2
+02C-02F @ADDFF.P3
+030-033 @DIVFF.P1
+030-033 @ADDFF.P2
+030     @MULFF.@SCRATCH1
+031     @MULFF.@SCRATCH2
+032     @MULFF.@SCRATCH3
+033     @MULFF.@SCRATCH4
+034     @MULFF.@SCRATCH5
+034     @DIVFF.@SCRATCH1
+034     @ADDFF.@SCRATCH1
+035     @DIVFF.@SCRATCH2
+035     @ADDFF.@SCRATCH2
+036     @DIVFF.@SCRATCH3
+036     @ADDFF.@SCRATCH3
+037     @DIVFF.@SCRATCH4
+037     @ADDFF.@SCRATCH4
+038     @DIVFF.@SCRATCH5
+038     @ADDFF.@SCRATCH5
+039     @DIVFF.@SCRATCH6
+039     @ADDFF.@SCRATCH6
+03A     @ADDFF.@SCRATCH7
+03B     @ADDFF.@SCRATCH8
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @delay_us1
+000015  gira
+000023  @MULFF
+0000AD  @DIVFF
+00018D  @ADDFF
+0002D5  @SFTOI
+000310  main
+000310  @cinit1
+00031A  @cinit2
+
+Project Directory:
+    C:\Users\¡¡¡VIVA EL BASKET!!!\Desktop\Progra\PIC\Servo1\
+
+Project Files:
+    Servo1.c                                                [07-jul.-18 10:37  CRC=499975CE]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [18-may.-16 15:12  CRC=5D18E6E3]
+
+Source signature=03CB4394
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=304B
+
+Units:
+    Servo1 (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   Servo1.xsym
+    Errors:      Servo1.err
+    Ext Symbols: Servo1.esym
+    INHX8:       Servo1.hex
+    Symbols:     Servo1.sym
+    List:        Servo1.lst
