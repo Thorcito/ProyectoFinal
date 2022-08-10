@@ -1,5 +1,4 @@
 import csv
-import pandas as panda
 from tkinter import *
 from tkinter import filedialog
 
@@ -11,7 +10,6 @@ columna = 0
 def AbrirArchivo():
     archivo = filedialog.askopenfilename(title="Seleccione el mapa", initialdir="C:/Users/usuario/Desktop", filetypes=(
         (" Archivos de Archivo de valores separados por comas de Microsoft Excel", "*.csv"), (" Archivos de Texto", "*.txt"), (" Todos los Archivos", "*.*")))
-    #print("El mapa que se esta utilizando es: ", archivo)
     AbrirCSV(archivo)
 
 Button(raiz, text="Abrir archivo", command=AbrirArchivo).pack()
@@ -22,7 +20,6 @@ def AbrirCSV(mapa):
 		for row in reader:
 			Matriz.append(row)
 			print (row)
-			#print("{0}, {1}, {2}, {3}, {4}".format(row[0], row[1], row[2], row[3], row[4]))
 		mostrarMatriz()
 
 def mostrarMatriz():
