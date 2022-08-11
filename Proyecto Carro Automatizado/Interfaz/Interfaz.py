@@ -7,6 +7,7 @@ Matriz = [[]]
 fila = 0 
 columna = 0
 
+#Función que permite la búsqueda del archivo csv que contiene el mapa a ejecutar
 def AbrirArchivo():
     archivo = filedialog.askopenfilename(title="Seleccione el mapa", initialdir="C:/Users/usuario/Desktop", filetypes=(
         (" Archivos de Archivo de valores separados por comas de Microsoft Excel", "*.csv"), (" Archivos de Texto", "*.txt"), (" Todos los Archivos", "*.*")))
@@ -14,6 +15,7 @@ def AbrirArchivo():
 
 Button(raiz, text="Abrir archivo", command=AbrirArchivo).pack()
 
+#Función que convierte los valores del cvs en una matriz
 def AbrirCSV(mapa):
 	with open(mapa) as f:
 		reader = csv.reader(f, delimiter=";")
@@ -22,6 +24,7 @@ def AbrirCSV(mapa):
 			print (row)
 		mostrarMatriz()
 
+#Función auxiliar de AbrirCSV
 def mostrarMatriz():
 	for fila in range (0, len(Matriz)):
 		for columna in range (0, len(Matriz[fila])):
@@ -34,27 +37,27 @@ def mostrarMatriz():
 
 #Funcion auxiliar para detectar el color de la casilla
 def detectar_color(valor_casilla_excel_read):
-        if type(valor_casilla_excel_read) == int:
-                color = 0;
-                if ((valor_casilla_excel_read//10)==1):
-                        color = "verde";
-                        return color
-                elif ((valor_casilla_excel_read//10)==2):
-                        color = "rojo";
-                        return color
-                elif ((valor_casilla_excel_read//10)==3):
-                        color = "gris";
-                        return color
-                elif ((valor_casilla_excel_read//10)==4):
-                        color = "morado";
-                        return color
-                elif ((valor_casilla_excel_read//10)==9):
-                        color = "azul";
-                        return color
-                else:
-                        return "color no detectado"
+    if type(valor_casilla_excel_read) == int:
+        color = 0;
+        if ((valor_casilla_excel_read//10)==1):
+            color = "verde";
+            return color
+        elif ((valor_casilla_excel_read//10)==2):
+            color = "rojo";
+            return color
+        elif ((valor_casilla_excel_read//10)==3):
+            color = "gris";
+            return color
+        elif ((valor_casilla_excel_read//10)==4):
+            color = "morado";
+            return color
+        elif ((valor_casilla_excel_read//10)==9):
+            color = "azul";
+            return color
         else:
-                return "valor casilla no es int"
+            return "color no detectado"
+    else:
+        return "valor casilla no es int"
 
 #Funcion auxiliar para detectar la direccion de los pasos segun el valor de la casilla
 def direccion_pasos(valor_casilla_excel_read):
