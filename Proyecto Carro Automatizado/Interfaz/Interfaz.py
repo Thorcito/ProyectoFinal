@@ -22,7 +22,8 @@ def AbrirCSV(mapa):
 		for row in reader:
 			Matriz.append(row)
 			print (row)
-		mostrarMatriz()
+		encontrarInicio()
+
 
 #Función auxiliar de AbrirCSV
 def mostrarMatriz():
@@ -82,7 +83,8 @@ def direccion_pasos(valor_casilla_excel_read):
 
 def encontrarInicio():
 	for fila in range (0, len(Matriz)):
-			if (Matriz[fila][columna]) >= int('90'):
-				print ('El incio del recorrido es en la:', 'fila', fila, 'columna', columna)
+            for columna in range(0, len(Matriz[fila])):
+        	    if (Matriz[fila][columna]) >= '90':
+                        print ('El incio del recorrido es en la:', 'fila', fila, 'columna', columna)
 
 raiz.mainloop()
