@@ -80,8 +80,9 @@ def direccion_pasos(valor_casilla_excel_read):
         else:
                 return "valor casilla no es un int"
 
-
-
-
+def encontrarInicio():
+	for fila in range (0, len(Matriz)):
+			if (Matriz[fila][columna]) >= int('90'):
+				print ('El incio del recorrido es en la:', 'fila', fila, 'columna', columna)
 
 raiz.mainloop()
