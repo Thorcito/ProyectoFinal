@@ -2,6 +2,7 @@ import csv
 from tkinter import *
 from tkinter import filedialog
 
+#se definen las variables con las que se va a trabajar
 raiz = Tk()
 Matriz = [[]]
  
@@ -14,7 +15,7 @@ def AbrirArchivo():
     AbrirCSV(archivo)
 Button(raiz, text="Abrir archivo", command=AbrirArchivo).pack()
 
-#Función que convierte los valores del cvs en una matriz
+#Función que el cvs y lo traslada a una matriz
 def AbrirCSV(mapa):
 	with open(mapa) as f:
 		reader = csv.reader(f, delimiter=";")
@@ -24,7 +25,7 @@ def AbrirCSV(mapa):
 	mostrarMatriz()
 		
 
-#Función auxiliar de AbrirCSV
+#Función que permite desplegar los valores que se leyeron
 def mostrarMatriz():
 	#for fila in range (0, len(Matriz)):
 	#	for columna in range (0, len(Matriz[fila])):
@@ -33,6 +34,7 @@ def mostrarMatriz():
 	for i in range (0, len(Matriz)):
 		print ('fila:', i, Matriz[i])
 
+#Función que permite extraer los valores de la matriz
 def sacarElementos(fila):
 	#print (Matriz[fila][columna])
 	return (Matriz[fila])
