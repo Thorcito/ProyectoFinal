@@ -2,14 +2,9 @@ from Interfaz import *
 
 #se definen las variables con las que se va a trabajar
 Matriz_trabajo = [[]]
-fila = 0 
-columna = 0
 
-#Inicio del código se pide un mapa através de un CSV y la función main
-def __main__():
-    extraerMatriz() #esta función se encarga de obtener la matriz leída en la interfaz *siempre debe llamarse para que funcione el código*
-    deteccionSTRtoINT() #esta función se encarga de decodificar los valores que se encuentran en las celdas
-    encontrarInicio()  #esta función se encarga de obtener la ubicación del inicio del mapa, este siempre inicia con 9
+color = 0 
+direccion = 0
 
 #Función auxiliar de AbrirCSV que permite traer la matriz de Interfaz.py
 def extraerMatriz():
@@ -30,11 +25,11 @@ def deteccionSTRtoINT():
             else:
                 #se encuentra un celda que no está vacía y convierte el valor de lo que haya en esta
                 valorAconvetir=int(Matriz_trabajo[fila][columna])
-                print(type(valorAconvetir))
-                print(valorAconvetir)
+                #print(type(valorAconvetir))
+                #print(valorAconvetir)
                 #se envía el valor convertido para ser procesado e identificar el color y la dirección 
-                print(detectar_color(valorAconvetir))
-                print(direccion_pasos(valorAconvetir))
+                #print(detectar_color(valorAconvetir))
+                #print(direccion_pasos(valorAconvetir))
 
 #Función se encarga de obtener la ubicación del inicio del mapa y la retorna
 def encontrarInicio():
@@ -42,12 +37,14 @@ def encontrarInicio():
         for columna in range(0, len(Matriz_trabajo[fila])):
             if (Matriz_trabajo[fila][columna]) >= '90':
                 print ('El inicio del recorrido es en la:', 'fila', fila, 'columna', columna)
-                return (fila, columna)
+                filaIni=fila
+                columnaIni=columna
+                return(filaIni, columnaIni)
 
 #Funcion auxiliar para detectar el color de la casilla
 def detectar_color(valor_casilla_excel_read):
     if type(valor_casilla_excel_read) == int:
-        color = 0;
+        color = 8;
         if ((valor_casilla_excel_read//10)==1):
             color = "verde";
             return color
@@ -85,8 +82,39 @@ def direccion_pasos(valor_casilla_excel_read):
                         direccion = "abajo";
                         return direccion
                 else:
-                        return "dirección no detectada"
+                        return "direccion no detectada"
         else:
                 return "valor casilla no es un int"
+
+#Funcion auxiliar para detectar la siguiente instrucción a ejecutar
+def paso_siguiente(fila, columna):
+    #mover el motor en la dirección correcta 
+    celda_actual = int(Matriz_trabajo[fila][columna]) 
+    color = detectar_color(celda_actual)
+    direccion = direccion_pasos(celda_actual)
+    if color == 'morado':
+        #avanzar hasta que se encuentre un cero, un borde, en la dirección respectiva
+        pass
+    else: 
+        if verificación_celda(color, direccion) == 1: 
+            #se procede con el movimiento a la siguiente celda  
+
+#Funcion auxiliar para detectar la direccion de los pasos segun el valor de la casilla
+def verificación_celda(color, direccion):
+    paso_aprobado = 0
+    if color == 'negro'|'gris':
+        #entonces no se puede alcanzar dicha casilla
+    else: 
+        paso_aprobado = 1
+        return paso_aprobado 
+
+#Inicio del código se pide un mapa através de un CSV y la función main
+def __main__():
+    extraerMatriz() #esta función se encarga de obtener la matriz leída en la interfaz *siempre debe llamarse para que funcione el código*
+    deteccionSTRtoINT() #esta función se encarga de decodificar los valores que se encuentran en las celdas
+    filaIni, columnaIni = encontrarInicio()  #esta función se encarga de obtener la ubicación del inicio del mapa, este siempre inicia con 9
+    paso_siguiente(filaIni, columnaIni)
+    
+
 
 __main__()
