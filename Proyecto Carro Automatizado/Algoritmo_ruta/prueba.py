@@ -1,4 +1,54 @@
+from tkinter import * 
+
 import turtle
+import tkinter as tk
+
+#bloque de entrada del usuario
+def validacion(usuarioFin, ejex, ejey, info):
+    try: 
+        x = int(ejex.get())
+        y = int(ejey.get())
+
+        info.config(text='La coordenada es valida')
+
+        #aqui va la funcion que ingresa el punto de inicio despues de validar
+        #que el espacio no se encuentre ocupado por una barrera\
+        
+        usuarioFin.destroy()
+    except ValueError: 
+       info.config(text='La coordenada no es valida')
+
+
+def puntoFin():
+    usuarioFin = Tk()
+    usuarioFin.title('Ventana de usuario')
+    usuarioFin.geometry('300x300')
+
+    CoorEjeX = Label(usuarioFin, text="Coordenada eje X:")
+    CoorEjeX.pack(pady=10)
+
+    ejex = Entry(usuarioFin)
+    ejex.pack(pady=10)
+
+    CoorEjeY = Label(usuarioFin, text="Coordenada eje Y:")
+    CoorEjeY.pack(pady=10)
+
+    ejey = Entry(usuarioFin)
+    ejey.pack(pady=10)
+
+    info = Label(usuarioFin, text='')
+    info.pack(pady=20)
+
+    btn = Button(usuarioFin, text='Nice day BITCH', command=lambda: validacion(usuarioFin ,ejex, ejey, info))
+    btn.pack(pady=5)
+
+ 
+
+
+    usuarioFin.mainloop()
+
+
+puntoFin()
 
 PARTE_DEL_CAMINO = 'O'
 INTENTADO = '.'
@@ -129,3 +179,9 @@ miLaberinto.actualizarPosicion(miLaberinto.filaInicio,miLaberinto.columnaInicio)
 solucion = buscarDesde(miLaberinto, miLaberinto.filaInicio, miLaberinto.columnaInicio)
 if solucion == False:
     print('No se encuentra una ruta para la coordenada deseada')
+else: 
+    for i in range(len(miLaberinto.listaLaberinto)):
+        print(miLaberinto.listaLaberinto[i] )
+
+        #hacer el input del usuario para la posicion final, una vez se tenga la posIni y la posFin, 
+        #se envia al carro para que lea el patron con la ruta correcta
