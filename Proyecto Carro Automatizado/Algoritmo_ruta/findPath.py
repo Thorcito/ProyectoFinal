@@ -158,9 +158,6 @@ def puntoFin():
     btn = Button(usuarioFin, text='Nice BITCH!', command=lambda: validacion(usuarioFin ,ejex, ejey, info))
     btn.pack(pady=5)
 
- 
-
-
     usuarioFin.mainloop()
 
 def buscarDesde(laberinto, filaInicio, columnaInicio):
@@ -190,11 +187,8 @@ def buscarDesde(laberinto, filaInicio, columnaInicio):
         laberinto.actualizarPosicion(filaInicio, columnaInicio, CAJELLON_SIN_SALIDA)
     return encontrado
 
-
 miLaberinto = Laberinto('laberinto2.txt')
 miLaberinto.dibujarLaberinto()
 miLaberinto.actualizarPosicion(miLaberinto.filaInicio,miLaberinto.columnaInicio)
 
-
 puntoFin()
-

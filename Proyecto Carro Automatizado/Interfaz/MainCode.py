@@ -102,7 +102,7 @@ def paso_siguiente(fila, columna):
 #Funcion auxiliar para detectar la direccion de los pasos segun el valor de la casilla
 def verificación_celda(color, direccion):
     paso_aprobado = 0
-    if color == 'negro'|'gris':
+    if color == 'negro'or'gris':
         pass #entonces no se puede alcanzar dicha casilla
     else: 
         paso_aprobado = 1
