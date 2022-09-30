@@ -3,58 +3,13 @@ from tkinter import *
 import turtle
 import tkinter as tk
 
-#bloque de entrada del usuario
-def validacion(usuarioFin, ejex, ejey, info):
-    try: 
-        x = int(ejex.get())
-        y = int(ejey.get())
-
-        info.config(text='La coordenada es valida')
-
-        #aqui va la funcion que ingresa el punto de inicio despues de validar
-        #que el espacio no se encuentre ocupado por una barrera\
-        
-        usuarioFin.destroy()
-    except ValueError: 
-       info.config(text='La coordenada no es valida')
-
-
-def puntoFin():
-    usuarioFin = Tk()
-    usuarioFin.title('Ventana de usuario')
-    usuarioFin.geometry('300x300')
-
-    CoorEjeX = Label(usuarioFin, text="Coordenada eje X:")
-    CoorEjeX.pack(pady=10)
-
-    ejex = Entry(usuarioFin)
-    ejex.pack(pady=10)
-
-    CoorEjeY = Label(usuarioFin, text="Coordenada eje Y:")
-    CoorEjeY.pack(pady=10)
-
-    ejey = Entry(usuarioFin)
-    ejey.pack(pady=10)
-
-    info = Label(usuarioFin, text='')
-    info.pack(pady=20)
-
-    btn = Button(usuarioFin, text='Nice day BITCH', command=lambda: validacion(usuarioFin ,ejex, ejey, info))
-    btn.pack(pady=5)
-
- 
-
-
-    usuarioFin.mainloop()
-
-
-puntoFin()
-
 PARTE_DEL_CAMINO = 'O'
 INTENTADO = '.'
 OBSTACULO = '1'
 CAJELLON_SIN_SALIDA = '-'
 EXIT = '2'
+solucion = False
+
 
 class Laberinto:
     def __init__(self,nombreArchivoLaberinto):
@@ -144,6 +99,69 @@ class Laberinto:
     def __getitem__(self,indice):
         return self.listaLaberinto[indice]
 
+##################################################################################################################################################
+
+#bloque de entrada del usuario
+def devolucionMR():
+    try:
+        solucion==True
+        mapSolved = miLaberinto.listaLaberinto
+        print(mapSolved)
+        miLaberinto.destroy()
+        return mapSolved
+    except:
+        pass
+
+def validacion(usuarioFin, ejex, ejey, info):
+    try: 
+        x = int(ejex.get())
+        y = int(ejey.get())
+
+        #aqui va la funcion que ingresa el punto de inicio despues de validar
+        #que el espacio no se encuentre ocupado por una barrera\
+        if x<len(miLaberinto.listaLaberinto) and x!=0:
+            if y != 0 and y<len(miLaberinto.listaLaberinto[1]):
+                if miLaberinto.listaLaberinto[x][y] == ' ':
+                    miLaberinto.listaLaberinto[x][y] = EXIT
+                    info.config(text='La coordenada es valida')
+                    usuarioFin.destroy()
+                    solucion = buscarDesde(miLaberinto, miLaberinto.filaInicio, miLaberinto.columnaInicio)
+                    devolucionMR()
+                else:
+                    info.config(text='La coordenada se encuentra en una barrera del mapa')
+        else:
+            info.config(text='La coordenada no se encuentra dentro del mapa')
+    except ValueError: 
+       info.config(text='La coordenada no es valida')
+
+
+def puntoFin():
+    usuarioFin = Tk()
+    usuarioFin.title('Ventana de usuario')
+    usuarioFin.geometry('300x300')
+
+    CoorEjeX = Label(usuarioFin, text="Coordenada eje y:")
+    CoorEjeX.pack(pady=10)
+
+    ejex = Entry(usuarioFin)
+    ejex.pack(pady=10)
+
+    CoorEjeY = Label(usuarioFin, text="Coordenada eje x:")
+    CoorEjeY.pack(pady=10)
+
+    ejey = Entry(usuarioFin)
+    ejey.pack(pady=10)
+
+    info = Label(usuarioFin, text='')
+    info.pack(pady=20)
+
+    btn = Button(usuarioFin, text='Nice BITCH!', command=lambda: validacion(usuarioFin ,ejex, ejey, info))
+    btn.pack(pady=5)
+
+ 
+
+
+    usuarioFin.mainloop()
 
 def buscarDesde(laberinto, filaInicio, columnaInicio):
     laberinto.actualizarPosicion(filaInicio, columnaInicio)
@@ -172,16 +190,11 @@ def buscarDesde(laberinto, filaInicio, columnaInicio):
         laberinto.actualizarPosicion(filaInicio, columnaInicio, CAJELLON_SIN_SALIDA)
     return encontrado
 
+
 miLaberinto = Laberinto('laberinto2.txt')
 miLaberinto.dibujarLaberinto()
 miLaberinto.actualizarPosicion(miLaberinto.filaInicio,miLaberinto.columnaInicio)
 
-solucion = buscarDesde(miLaberinto, miLaberinto.filaInicio, miLaberinto.columnaInicio)
-if solucion == False:
-    print('No se encuentra una ruta para la coordenada deseada')
-else: 
-    for i in range(len(miLaberinto.listaLaberinto)):
-        print(miLaberinto.listaLaberinto[i] )
 
-        #hacer el input del usuario para la posicion final, una vez se tenga la posIni y la posFin, 
-        #se envia al carro para que lea el patron con la ruta correcta
+puntoFin()
+
