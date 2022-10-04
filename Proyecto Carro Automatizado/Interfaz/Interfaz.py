@@ -6,6 +6,7 @@ raiz = Tk()
 Matriz = [[]]
 fila = 0 
 columna = 0
+casilla = 0
 
 #Función que permite la búsqueda del archivo csv que contiene el mapa a ejecutar
 def AbrirArchivo():
@@ -17,24 +18,25 @@ Button(raiz, text="Abrir archivo", command=AbrirArchivo).pack()
 
 #Función que convierte los valores del cvs en una matriz
 def AbrirCSV(mapa):
-	with open(mapa) as f:
-		reader = csv.reader(f, delimiter=";")
-		for row in reader:
-			Matriz.append(row)
-			print (row)
-		encontrarInicio()
+    with open(mapa) as f:
+        reader = csv.reader(f, delimiter=";")
+        for row in reader:
+            Matriz.append(row)
+            print (row)
+        encontrarInicio()
 
 
 #Función auxiliar de AbrirCSV
 def mostrarMatriz():
-	for fila in range (0, len(Matriz)):
-		for columna in range (0, len(Matriz[fila])):
-			if (Matriz[fila][columna]) == '':
-				pass;
-			else:
-				print ('fila:', fila, 'columna:', columna ,'valor interno:', Matriz[fila][columna])
-	for i in range (0, len(Matriz)):
-		print ('fila:', i, Matriz[i])
+    for fila in range (0, len(Matriz)):
+        for columna in range (0, len(Matriz[fila])):
+            if (Matriz[fila][columna]) == '':
+                pass;
+            else:
+                print ('fila:', fila, 'columna:', columna ,'valor interno:', Matriz[fila][columna])
+                casilla = Matriz[fila][columna]
+    for i in range (0, len(Matriz)):
+        print ('fila:', i, Matriz[i])
 
 #Funcion auxiliar para detectar el color de la casilla
 def detectar_color(valor_casilla_excel_read):
@@ -82,9 +84,9 @@ def direccion_pasos(valor_casilla_excel_read):
                 return "valor casilla no es un int"
 
 def encontrarInicio():
-	for fila in range (0, len(Matriz)):
+    for fila in range (0, len(Matriz)):
             for columna in range(0, len(Matriz[fila])):
-        	    if (Matriz[fila][columna]) >= '90':
+                if (Matriz[fila][columna]) >= '90':
                         print ('El incio del recorrido es en la:', 'fila', fila, 'columna', columna)
 
 raiz.mainloop()
