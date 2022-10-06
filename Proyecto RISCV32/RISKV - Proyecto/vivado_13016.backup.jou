@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2018.3.1 (64-bit)
+# SW Build 2489853 on Tue Mar 26 04:20:25 MDT 2019
+# IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
+# Start of session at: Wed Oct  5 23:28:49 2022
+# Process ID: 13016
+# Current directory: E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21216 E:\Proyectos verilog\Lab_Digital\RISKV - Proyecto\RISKV - Proyecto.xpr
+# Log file: E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/vivado.log
+# Journal file: E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.xpr}
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_simulation
+source ExtendUnit_8to32_TB.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top main_TB [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+launch_simulation
+source main_TB.tcl
+update_compile_order -fileset sim_1
+close_sim
+close_sim

@@ -31,11 +31,14 @@ module Mem_Datos(
 );
 
     reg [31:0] MEMORIA [0:65535];
-
-    integer i,k;
+    
+    integer i,k,q;
     integer file_id;
+    reg [31:0] word;
+
     initial begin //Inicializando las Memorias 
         Read_Data <= 0;
+        assign q=4294901760;
         //Se definen los espacions de memoria desde 0xffff0000
     for (i=0; i<65535; i=i+1)begin 
         MEMORIA[i]=0;
@@ -52,14 +55,16 @@ module Mem_Datos(
             Read_Data <= 0;
     end else begin
         if (Write_EN == 2'b01)begin
-        MEMORIA[ALUResult] <= WriteWord;
-        Read_Data <= MEMORIA[ALUResult];
+        MEMORIA[ALUResult-q] <= WriteWord;
+        Read_Data <= MEMORIA[ALUResult-q];
     end else if (Write_EN == 2'b10)begin
-        MEMORIA[ALUResult[7:0]] <= WriteByte;
-        Read_Data <= MEMORIA[ALUResult];
-    end
+        word <= MEMORIA[ALUResult-q];
+        word <= MEMORIA[ALUResult-q]&{24'hFFFFFF, 8'h00};
+        MEMORIA[ALUResult-q] <= {word[31:8],WriteByte};
+        Read_Data <= MEMORIA[ALUResult-q];
+    end 
     else begin 
-        Read_Data <= MEMORIA[ALUResult];
+        Read_Data <= MEMORIA[ALUResult-q];
     end 
 end
 

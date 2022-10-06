@@ -1,0 +1,125 @@
+#-----------------------------------------------------------
+# Vivado v2018.3.1 (64-bit)
+# SW Build 2489853 on Tue Mar 26 04:20:25 MDT 2019
+# IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
+# Start of session at: Wed Oct  5 23:28:49 2022
+# Process ID: 13016
+# Current directory: E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21216 E:\Proyectos verilog\Lab_Digital\RISKV - Proyecto\RISKV - Proyecto.xpr
+# Log file: E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/vivado.log
+# Journal file: E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/sistema/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:23 ; elapsed = 00:00:10 . Memory (MB): peak = 759.469 ; gain = 137.582
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+[Wed Oct  5 23:29:40 2022] Launched synth_1...
+Run output will be captured here: E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.runs/synth_1/runme.log
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ExtendUnit_8to32_TB' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.sim/sim_1/behav/xsim/code1.txt'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ExtendUnit_8to32_TB_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sim_1/new/ExtendUnit_8to32_TB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExtendUnit_8to32_TB
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: E:/sistema/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto c01e449e965e4479939e62010d266e49 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ExtendUnit_8to32_TB_behav xil_defaultlib.ExtendUnit_8to32_TB xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ExtendUnit_8to32
+Compiling module xil_defaultlib.ExtendUnit_8to32_TB
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ExtendUnit_8to32_TB_behav
+ERROR: [Common 17-165] Too many positional options when parsing '-notrace', please type 'webtalk -help' for usage info.
+
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ExtendUnit_8to32_TB_behav -key {Behavioral:sim_1:Functional:ExtendUnit_8to32_TB} -tclbatch {ExtendUnit_8to32_TB.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source ExtendUnit_8to32_TB.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ExtendUnit_8to32_TB_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 830.547 ; gain = 0.000
+set_property top main_TB [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'main_TB' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.sim/sim_1/behav/xsim/code1.txt'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj main_TB_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: E:/sistema/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto c01e449e965e4479939e62010d266e49 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot main_TB_behav xil_defaultlib.main_TB xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "main_TB_behav -key {Behavioral:sim_1:Functional:main_TB} -tclbatch {main_TB.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source main_TB.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'main_TB_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+update_compile_order -fileset sim_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Oct  5 23:40:59 2022...
