@@ -64,11 +64,17 @@ end
     always @(*) begin
         Read_Data <= MEMORIA[ALUResult-q];
     end 
-    
+    reg [31:0] memory; 
+    reg [7:0] m1, m2, m3, m0; 
 initial begin 
     #800
-    for (k=0; k<65635; k=k+1) begin
-        $fdisplay(file_id,"%h", k, MEMORIA[k]); 
+    for (k=0; k<65635; k=k+4) begin
+        m0 = MEMORIA[k];
+        m1 = MEMORIA[k-1];
+        m2 = MEMORIA[k-2];
+        m3 = MEMORIA[k-3];
+        memory = {m3[7:0], m2[7:0], m1[7:0], m0[7:0]};
+        $fdisplayh(file_id, k,"  ", memory); 
     end
 end
 endmodule
