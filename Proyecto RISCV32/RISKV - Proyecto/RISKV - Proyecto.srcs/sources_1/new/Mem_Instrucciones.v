@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 04.10.2022 22:08:16
+// Create Date: 10/06/2022 01:54:18 AM
 // Design Name: 
 // Module Name: Mem_Instrucciones
 // Project Name: 
@@ -21,17 +21,15 @@
 
 
 module Mem_Instrucciones(Dir, Inst);
-
-input [31:0] Dir; 
-output reg [31:0] Inst; 
-reg[31:0] mem[127:0]; 
+input [31:0] Dir; //se declara la direccion de la instruccion 
+output reg [31:0] Inst; //la instruccion en la direcciion 
+reg[31:0] mem[127:0]; //variable interna 
 
 initial begin
-    $readmemh("code1.txt",mem); 
+    $readmemh("code1.txt",mem); //lectura de archivo txt donde vienen todas las instrucciones 
 end
 
- always @(*) begin
-Inst <= mem[(Dir/4)];
+always @(*) begin //siempre que haya un cambio 
+Inst <= mem[(Dir/4)]; 
 end
 endmodule
-

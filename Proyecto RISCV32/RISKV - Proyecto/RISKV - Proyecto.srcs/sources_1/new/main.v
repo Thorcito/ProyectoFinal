@@ -57,12 +57,18 @@ assign Add_B = Inst[24:20];
 assign Add_Dest = Inst[11:7]; 
 Banco_Registros RegFile (Add_A, Add_B, Add_Dest, Write_Data, CLK, RST, WEreg, Info_A, Info_B);
 
+wire Immreg; 
+wire [4:0] Outmux0; 
+Mux_2to1 Inmediatos (Add_B, Add_Dest, Immreg, Outmux0);  
+
+
+
 //Extension de 11bits a 32bits }
 wire [6:0] ImmA;
 wire [11:0] Imm;
 wire [31:0] ImmExt;
 assign ImmA = Inst[31:25];
-assign Imm = {ImmA, Add_Dest};
+assign Imm = {ImmA, Outmux0};
 ExtendUnit_12to32 Ext1 (Imm, ImmExt);
 
 //MUX a la ALU 
@@ -102,7 +108,7 @@ wire [2:0] funct;
 wire [6:0] opcode;
 assign funct = Inst[14:12];
 assign opcode = Inst[6:0];
-Unidad_Control UC (funct, opcode, WEmem, Alureg, ALUop, WEreg, Lreg);
+Unidad_Control UC (funct, opcode, WEmem, Alureg, ALUop, WEreg, Lreg, Immreg);
 
 always @(*) begin
     Nach <= Inst;

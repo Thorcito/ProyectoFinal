@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 04.10.2022 22:38:50
+// Create Date: 10/06/2022 02:03:22 AM
 // Design Name: 
 // Module Name: ALU_suma
 // Project Name: 
@@ -21,9 +21,9 @@
 
 
 module ALU_suma(
-    input [31:0] PC_reg_out,
-    output reg [31:0] Next_PC
+    input [31:0] PC_reg_out, //instruccion entrante 
+    output reg [31:0] Next_PC //instruccion saliente 
     );
-    always@(*)
-    Next_PC = PC_reg_out + 32'd4; // add
+    always@(*) //siempre que haya un cambio 
+    Next_PC = PC_reg_out + 32'd4; // a pc se le suma 4 para avanzar a la siguiente instruccion 
 endmodule

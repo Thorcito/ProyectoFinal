@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2018.3.1 (64-bit)
+# SW Build 2489853 on Tue Mar 26 04:20:25 MDT 2019
+# IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
+# Start of session at: Thu Oct  6 16:06:41 2022
+# Process ID: 4784
+# Current directory: E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21596 E:\Proyectos verilog\Lab_Digital\RISKV - Proyecto\RISKV - Proyecto.xpr
+# Log file: E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/vivado.log
+# Journal file: E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/sistema/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:08 . Memory (MB): peak = 750.840 ; gain = 121.480
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Oct  6 16:07:47 2022...

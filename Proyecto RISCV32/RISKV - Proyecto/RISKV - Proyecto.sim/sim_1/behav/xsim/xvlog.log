@@ -1,5 +1,25 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sources_1/new/ALU_2to1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_2to1
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sources_1/new/ALU_suma.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_suma
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sources_1/new/Banco_Registros.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Banco_Registros
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sources_1/new/ExtendUnit_12to32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExtendUnit_12to32
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sources_1/new/ExtendUnit_8to32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExtendUnit_8to32
 INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sources_1/new/Mem_Datos.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Mem_Datos
 WARNING: [VRFC 10-2581] 4294901760 as 32-bit signed integer overflows, using -65536 instead [E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sources_1/new/Mem_Datos.v:41]
-INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sim_1/imports/new/Mem_Datos_TB.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module Mem_Datos_TB
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sources_1/new/Mem_Instrucciones.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mem_Instrucciones
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sources_1/new/Mux_2to1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mux_2to1
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sources_1/new/Register.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Register
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sources_1/new/Unidad_Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Unidad_Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sources_1/new/main.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Proyectos verilog/Lab_Digital/RISKV - Proyecto/RISKV - Proyecto.srcs/sim_1/new/main_TB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_TB

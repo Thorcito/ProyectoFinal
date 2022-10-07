@@ -56,18 +56,15 @@ module Mem_Datos(
     end else begin
         if (Write_EN == 2'b01)begin
         MEMORIA[ALUResult-q] <= WriteWord;
-        Read_Data <= MEMORIA[ALUResult-q];
     end else if (Write_EN == 2'b10)begin
         word <= MEMORIA[ALUResult-q];
-        word <= MEMORIA[ALUResult-q]&{24'hFFFFFF, 8'h00};
         MEMORIA[ALUResult-q] <= {word[31:8],WriteByte};
-        Read_Data <= MEMORIA[ALUResult-q];
-    end 
-    else begin 
-        Read_Data <= MEMORIA[ALUResult-q];
     end 
 end
-
+    always @(*) begin
+        Read_Data <= MEMORIA[ALUResult-q];
+    end 
+    
 initial begin 
     #800
     for (k=0; k<65635; k=k+1) begin

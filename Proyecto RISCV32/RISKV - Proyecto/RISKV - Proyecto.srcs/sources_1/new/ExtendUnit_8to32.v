@@ -21,9 +21,9 @@
 
 
 module ExtendUnit_8to32(
-    input [7:0] Extender,          // el valor debe ser 21 bits de y no de 5 bits
-    output [31:0] Extendido        // el valor debe ser de 32 bits y no de 10 bits
+    input [7:0] Extender, //entrada de 8 bits 
+    output [31:0] Extendido //salida de 32 bits       
     );
     
-    assign Extendido = {24'b0,Extender};
+    assign Extendido = {24'b0, Extender}; //concatena 24 ceros a la entrada dejando la entrada a la derecha
 endmodule
