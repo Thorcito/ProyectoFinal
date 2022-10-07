@@ -22,19 +22,19 @@
 
 module Mem_Datos(
     input wire [31:0] ALUResult, //Direccion de Memoria
-    input wire [31:0] WriteWord, //Informacion en Memoria 
-    input wire [7:0] WriteByte,
-    input wire [1:0] Write_EN,         //Enable de Escritura
-    input wire CLK,              //Clock 
-    input wire RST,
+    input wire [31:0] WriteWord, //Informacion en Memoria (palabra)
+    input wire [7:0] WriteByte,  //informacion en memoria (byte)
+    input wire [1:0] Write_EN,   //Enable de Escritura
+    input wire CLK,   //Clock 
+    input wire RST,  // reset
     output reg [31:0] Read_Data //Salida Informacion en Memoria 
 );
 
-    reg [31:0] MEMORIA [0:65535];
+    reg [31:0] MEMORIA [0:65535];  //variable interna 
     
-    integer i,k,q;
-    integer file_id;
-    reg [31:0] word;
+    integer i,k,q;  //contadores y offset
+    integer file_id;  //variable para abrir el archivo
+    reg [31:0] word;  //Auxiliar para el WriteByte
 
     initial begin //Inicializando las Memorias 
         Read_Data <= 0;
@@ -46,19 +46,20 @@ module Mem_Datos(
     end 
 
     initial begin 
-        file_id=$fopen("MEM_DUMP.txt","w"); 
+        file_id=$fopen("MEM_DUMP.txt","w");  //se abre el archivo de texto
     end
 
 
-    always @(posedge CLK)
-        if (RST) begin
+    always @(posedge CLK)  //siempre que haya un cambio en el clock
+        if (RST) begin  //si se acciona el reset la salida es cero
             Read_Data <= 0;
     end else begin
-        if (Write_EN == 2'b01)begin
-        MEMORIA[ALUResult-q] <= WriteWord;
-    end else if (Write_EN == 2'b10)begin
-        word <= MEMORIA[ALUResult-q];
-        MEMORIA[ALUResult-q] <= {word[31:8],WriteByte};
+        if (Write_EN == 2'b01)begin  //si la senal de escritura vale 1 
+        MEMORIA[ALUResult-q] <= WriteWord;  //se escribe la palabra en la direccion de memeoria 
+    end else if (Write_EN == 2'b10)begin   //si la senal de escritura vale 2
+        //se escribe el byte mas significativo en la direccion de memoria 
+        word <= MEMORIA[ALUResult-q];  
+        MEMORIA[ALUResult-q] <= {word[31:8],WriteByte};  //caso contrario solo se hace una lectura de lo que haya en memoria 
     end 
 end
     always @(*) begin

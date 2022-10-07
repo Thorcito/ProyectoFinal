@@ -28,7 +28,7 @@ module Unidad_Control(
     output reg ALUop, //se declara salida para funcion a ejecutrar en la alu 
     output reg WEreg, //se declara salida para activar la escritura en registro destino
     output reg Lreg, //se declara salida para diferenciar entre loadear palabra o byte
-    output reg Immreg
+    output reg Immreg  //se declara salida para diferenciar cuales bits tomar para completar el imm
     );
     
     always @(*) begin //siempre que exista un cambio en las entradas 

@@ -28,7 +28,7 @@ wire ALUreg; //se declara salida ALUreg para decidir si se quiere la salida de a
 wire  ALUop; //se declara salida para funcion a ejecutrar en la alu 
 wire  WEreg; //se declara salida para activar la escritura en registro destino
 wire  Lreg; //se declara salida para diferenciar entre loadear palabra o byte
-wire  Immreg;
+wire  Immreg; //se declara salida para diferenciar cuales bits tomar para completar el imm
 
 Unidad_Control uut(
 //llamado de variables en el modulo del testbench correspondiente
