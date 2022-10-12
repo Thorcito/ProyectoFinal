@@ -37,7 +37,7 @@ class Laberinto:
         self.yTranslate = filasEnLaberinto/2
         self.t = turtle.Turtle()
         self.t.shape('turtle')
-        self.wn = turtle.Screen()
+        self.wn = turtle.Screen()  #desde acá se cree que se puede cerrar la ventana 
         self.wn.setworldcoordinates(-(columnasEnLaberinto-1)/2-.5,-(filasEnLaberinto-1)/2-.5,(columnasEnLaberinto-1)/2+.5,(filasEnLaberinto-1)/2+.5)
 
     def dibujarLaberinto(self):
@@ -102,17 +102,17 @@ class Laberinto:
 ##################################################################################################################################################
 
 #bloque de entrada del usuario
-def devolucionMR():
+def devolucionMR():  #devuelve el mapa resuelto 
     try:
         solucion==True
         mapSolved = miLaberinto.listaLaberinto
         print(mapSolved)
-        miLaberinto.destroy()
+        miLaberinto.wn.destroy()
         return mapSolved
     except:
         pass
 
-def validacion(usuarioFin, ejex, ejey, info):
+def validacion(usuarioFin, ejex, ejey, info):  #valida que las entradas sean las correctas 
     try: 
         x = int(ejex.get())
         y = int(ejey.get())
@@ -135,7 +135,7 @@ def validacion(usuarioFin, ejex, ejey, info):
        info.config(text='La coordenada no es valida')
 
 
-def puntoFin():
+def puntoFin():  #le permite al usuario escoger la posición final o de salida 
     usuarioFin = Tk()
     usuarioFin.title('Ventana de usuario')
     usuarioFin.geometry('300x300')
