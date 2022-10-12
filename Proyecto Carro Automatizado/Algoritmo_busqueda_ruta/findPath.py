@@ -1,11 +1,13 @@
-from tkinter import * 
+import csv
+from tkinter import *
 
 import turtle
 import tkinter as tk
 
-PARTE_DEL_CAMINO = 'O'
+PARTE_DEL_CAMINO = '5'
 INTENTADO = '.'
 OBSTACULO = '1'
+OBSTACULO_2 = '0'
 CAJELLON_SIN_SALIDA = '-'
 EXIT = '2'
 solucion = False
@@ -16,20 +18,24 @@ class Laberinto:
         filasEnLaberinto = 0
         columnasEnLaberinto = 0
         self.listaLaberinto = []
-        archivoLaberinto = open(nombreArchivoLaberinto,'r')
-        filasEnLaberinto = 0
-        for linea in archivoLaberinto:
-            listaFila = []
-            columna = 0
-            for caracter in linea[:-1]:
-                listaFila.append(caracter)
-                if caracter == '9':
-                    self.filaInicio = filasEnLaberinto
-                    self.columnaInicio = columna
-                columna = columna + 1
-            filasEnLaberinto = filasEnLaberinto + 1
-            self.listaLaberinto.append(listaFila)
-            columnasEnLaberinto = len(listaFila)
+        with open(nombreArchivoLaberinto) as f:
+            reader = csv.reader(f, delimiter=";")
+            for linea in reader:
+                listaFila = []
+                columna = 0
+                i = 4
+                for caracter in linea:
+                    listaFila.append(caracter)
+                    i = i -1
+                    if caracter == '9':
+                        self.filaInicio = filasEnLaberinto
+                        self.columnaInicio = columna
+                    columna = columna + 1
+                filasEnLaberinto = filasEnLaberinto + 1
+                listaFila.append ('0')
+                self.listaLaberinto.append(listaFila)
+                columnasEnLaberinto = len(listaFila)
+            self.listaLaberinto.append (['0','0','0','0','0','0'])
 
         self.filasEnLaberinto = filasEnLaberinto
         self.columnasEnLaberinto = columnasEnLaberinto
@@ -37,16 +43,16 @@ class Laberinto:
         self.yTranslate = filasEnLaberinto/2
         self.t = turtle.Turtle()
         self.t.shape('turtle')
-        self.wn = turtle.Screen()  #desde acá se cree que se puede cerrar la ventana 
-        self.wn.setworldcoordinates(-(columnasEnLaberinto-1)/2-.5,-(filasEnLaberinto-1)/2-.5,(columnasEnLaberinto-1)/2+.5,(filasEnLaberinto-1)/2+.5)
+        self.wn = turtle.Screen()  #desde acá se cree que se puede cerrar la ventana
+        self.wn.setworldcoordinates(-(columnasEnLaberinto-1)/2-0.85,-(filasEnLaberinto-1)/2,(columnasEnLaberinto-1)/2-1.15,(filasEnLaberinto-1)/2+0.85)
 
     def dibujarLaberinto(self):
         self.t.speed(10)
         self.wn.tracer(0)
         for y in range(self.filasEnLaberinto):
             for x in range(self.columnasEnLaberinto):
-                if self.listaLaberinto[y][x] == OBSTACULO:
-                    self.dibujarCajaCentrada(x+self.xTranslate,-y+self.yTranslate,'orange')
+                if self.listaLaberinto[y][x] == OBSTACULO or self.listaLaberinto[y][x] == OBSTACULO_2:
+                    self.dibujarCajaCentrada(x+self.xTranslate,-y+self.yTranslate,'purple')
         self.t.color('black')
         self.t.fillcolor('blue')
         self.wn.update()
@@ -102,7 +108,7 @@ class Laberinto:
 ##################################################################################################################################################
 
 #bloque de entrada del usuario
-def devolucionMR():  #devuelve el mapa resuelto 
+def devolucionMR():  #devuelve el mapa resuelto
     try:
         solucion==True
         mapSolved = miLaberinto.listaLaberinto
@@ -112,16 +118,16 @@ def devolucionMR():  #devuelve el mapa resuelto
     except:
         pass
 
-def validacion(usuarioFin, ejex, ejey, info):  #valida que las entradas sean las correctas 
-    try: 
+def validacion(usuarioFin, ejex, ejey, info):  #valida que las entradas sean las correctas
+    try:
         x = int(ejex.get())
         y = int(ejey.get())
 
         #aqui va la funcion que ingresa el punto de inicio despues de validar
         #que el espacio no se encuentre ocupado por una barrera\
-        if x<len(miLaberinto.listaLaberinto) and x!=0:
-            if y != 0 and y<len(miLaberinto.listaLaberinto[1]):
-                if miLaberinto.listaLaberinto[x][y] == ' ':
+        if x<len(miLaberinto.listaLaberinto) and x!=5:
+            if y<len(miLaberinto.listaLaberinto[1]) and y!=5:
+                if miLaberinto.listaLaberinto[x][y] == '':
                     miLaberinto.listaLaberinto[x][y] = EXIT
                     info.config(text='La coordenada es valida')
                     usuarioFin.destroy()
@@ -131,11 +137,11 @@ def validacion(usuarioFin, ejex, ejey, info):  #valida que las entradas sean las
                     info.config(text='La coordenada se encuentra en una barrera del mapa')
         else:
             info.config(text='La coordenada no se encuentra dentro del mapa')
-    except ValueError: 
+    except ValueError:
        info.config(text='La coordenada no es valida')
 
 
-def puntoFin():  #le permite al usuario escoger la posición final o de salida 
+def puntoFin():  #le permite al usuario escoger la posición final o de salida
     usuarioFin = Tk()
     usuarioFin.title('Ventana de usuario')
     usuarioFin.geometry('300x300')
@@ -164,7 +170,7 @@ def buscarDesde(laberinto, filaInicio, columnaInicio):
     laberinto.actualizarPosicion(filaInicio, columnaInicio)
    #  Verificar casos base:
    #  1. Hemos tropezado con un obstáculo, devolver False
-    if laberinto[filaInicio][columnaInicio] == OBSTACULO :
+    if laberinto[filaInicio][columnaInicio] == OBSTACULO or laberinto[filaInicio][columnaInicio] == OBSTACULO_2:
         return False
     #  2. Hemos encontrado un cuadrado que ya ha sido explorado
     if laberinto[filaInicio][columnaInicio] == INTENTADO:
@@ -187,8 +193,7 @@ def buscarDesde(laberinto, filaInicio, columnaInicio):
         laberinto.actualizarPosicion(filaInicio, columnaInicio, CAJELLON_SIN_SALIDA)
     return encontrado
 
-miLaberinto = Laberinto('laberinto2.txt')
+miLaberinto = Laberinto('Ejemplos_Rutas.csv')
 miLaberinto.dibujarLaberinto()
 miLaberinto.actualizarPosicion(miLaberinto.filaInicio,miLaberinto.columnaInicio)
-
 puntoFin()
