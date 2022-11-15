@@ -113,7 +113,6 @@ def devolucionMR():  #devuelve el mapa resuelto
         solucion==True
         mapSolved = miLaberinto.listaLaberinto
         print(mapSolved)
-        miLaberinto.wn.destroy()
         return mapSolved
     except:
         pass
@@ -133,6 +132,7 @@ def validacion(usuarioFin, ejex, ejey, info):  #valida que las entradas sean las
                     usuarioFin.destroy()
                     solucion = buscarDesde(miLaberinto, miLaberinto.filaInicio, miLaberinto.columnaInicio)
                     devolucionMR()
+
                 else:
                     info.config(text='La coordenada se encuentra en una barrera del mapa')
         else:
@@ -193,7 +193,7 @@ def buscarDesde(laberinto, filaInicio, columnaInicio):
         laberinto.actualizarPosicion(filaInicio, columnaInicio, CAJELLON_SIN_SALIDA)
     return encontrado
 
-miLaberinto = Laberinto('Ejemplos_Rutas.csv')
+miLaberinto = Laberinto('Maps_Mode2(b).csv')
 miLaberinto.dibujarLaberinto()
 miLaberinto.actualizarPosicion(miLaberinto.filaInicio,miLaberinto.columnaInicio)
 puntoFin()

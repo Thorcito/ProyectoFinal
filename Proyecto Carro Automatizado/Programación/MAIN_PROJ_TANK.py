@@ -1,20 +1,25 @@
 from tkinter import *
 from tkinter.ttk import *
- 
+import os
+import sys 
+
 # Crea el la ventana Tk
 Window = Tk()
  
 # Función que se encarga de abrir el modo 1
 def mode1():
      print('modo 1')
+     os.system("python Modo1_Seguimiento_ruta.py") 
 
 # Función que se encarga de abrir el modo 2
 def mode2():
      print('modo 2')
-
+     os.system("python Modo2_Busqueda_ruta.py") 
+     
 # Función que se encarga de abrir el modo 3
 def mode3():
      print('modo 3')
+     os.system("python Modo3_Manual.py") 
     
  # set de las dimensiones
 Window.geometry("400x250")

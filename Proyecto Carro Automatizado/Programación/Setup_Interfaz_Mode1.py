@@ -9,7 +9,6 @@ fila = 0
 columna = 0
 casilla = 0
 
-
 #Función que permite la búsqueda del archivo csv que contiene el mapa a ejecutar
 def AbrirArchivo():
     archivo = filedialog.askopenfilename(title="Seleccione el mapa", initialdir="C:/Users/usuario/Desktop", filetypes=(
@@ -109,5 +108,4 @@ def sacarElementos(fila):
 	#print (Matriz[fila][columna])
 	return (Matriz[fila])
 	
-
 raiz.mainloop()

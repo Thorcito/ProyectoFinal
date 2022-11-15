@@ -1,4 +1,4 @@
-from Interfaz import *
+from Setup_Interfaz_Mode1 import *
 
 #se definen las variables con las que se va a trabajar
 Matriz_trabajo = [[]]
@@ -114,7 +114,5 @@ def __main__():
     deteccionSTRtoINT() #esta función se encarga de decodificar los valores que se encuentran en las celdas
     filaIni, columnaIni = encontrarInicio()  #esta función se encarga de obtener la ubicación del inicio del mapa, este siempre inicia con 9
     paso_siguiente(filaIni, columnaIni)
-    
-
 
 __main__()
