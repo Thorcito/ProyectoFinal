@@ -15,13 +15,6 @@ def mode2():
 # Función que se encarga de abrir el modo 3
 def mode3():
      print('modo 3')
-
-# Función que se encarga de Cerrar la ventana de control
-def close_win():
-   Window.destroy()
-
-
-# Funci[on que se encarga de ce
     
  # set de las dimensiones
 Window.geometry("400x250")
@@ -53,7 +46,7 @@ btnM3.pack(pady = 10)
  # Primero se agrega el boton que le corresponde al modo 1
 btnQ = Button(Window,
              text ="Liberar Control",
-             command = close_win)
+             command = Window.destroy)
 btnQ.pack(pady = 10)
 
 
