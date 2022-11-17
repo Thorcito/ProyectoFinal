@@ -15,7 +15,7 @@ def AbrirArchivo():
         (" Archivos de Archivo de valores separados por comas de Microsoft Excel", "*.csv"), (" Archivos de Texto", "*.txt"), (" Todos los Archivos", "*.*")))
     raiz.destroy()
     AbrirCSV(archivo)
-Button(raiz, text="Abrir archivo", command=AbrirArchivo).pack()
+
 
 #Función que el cvs y lo traslada a una matriz
 def AbrirCSV(mapa):
@@ -107,5 +107,11 @@ def encontrarInicio():
 def sacarElementos(fila):
 	#print (Matriz[fila][columna])
 	return (Matriz[fila])
-	
+
+
+raiz.geometry("270x90")
+raiz.title("Seleccion mapa")
+Label(raiz, text ="Bienvenido a la seleccion del mapa. ").pack()   
+Label(raiz, text ="Por favor ingrese el CSV.").pack()   
+Button(raiz, text="Abrir archivo", command=AbrirArchivo).pack()	
 raiz.mainloop()

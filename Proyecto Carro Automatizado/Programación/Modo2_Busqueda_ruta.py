@@ -144,7 +144,7 @@ def validacion(usuarioFin, ejex, ejey, info):  #valida que las entradas sean las
 def puntoFin():  #le permite al usuario escoger la posición final o de salida
     usuarioFin = Tk()
     usuarioFin.title('Ventana de usuario')
-    usuarioFin.geometry('300x300')
+    usuarioFin.geometry('300x250')
 
     CoorEjeX = Label(usuarioFin, text="Coordenada eje y:")
     CoorEjeX.pack(pady=10)
@@ -159,10 +159,10 @@ def puntoFin():  #le permite al usuario escoger la posición final o de salida
     ejey.pack(pady=10)
 
     info = Label(usuarioFin, text='')
-    info.pack(pady=20)
+    info.pack(pady=10)
 
-    btn = Button(usuarioFin, text='Nice BITCH!', command=lambda: validacion(usuarioFin ,ejex, ejey, info))
-    btn.pack(pady=5)
+    btn = Button(usuarioFin, text='Validar la coordenada', command=lambda: validacion(usuarioFin ,ejex, ejey, info))
+    btn.pack(pady=10)
 
     usuarioFin.mainloop()
 
