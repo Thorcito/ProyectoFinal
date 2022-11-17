@@ -63,10 +63,10 @@ btnM3 = Button(Window,
              command = mode3)
 btnM3.pack(pady = 10)
 
- # Primero se agrega el boton que le corresponde al modo 1
+# Botón que se encarga de salirse de modo, ya sea manual o auto
 btnQ = Button(Window,
              text ="Liberar Control",
-             command = Window.destroy)
+             command = ser.write(b"Atras\n"))
 btnQ.pack(pady = 10)
 
 #Tag que me indica el status de la acción
@@ -75,4 +75,9 @@ labelStatus = Label(Window,
  
 labelStatus.pack(pady = 10)
 
+# Botón que se encarga de salirse de la ventana
+btnExit = Button(Window,
+             text ="Liberar Control",
+             command = Window.destroy)
+btnExit.pack(pady = 10)
 mainloop()
