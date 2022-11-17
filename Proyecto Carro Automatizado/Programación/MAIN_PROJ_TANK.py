@@ -30,8 +30,8 @@ def mode2():
 # Función que se encarga de abrir el modo 3
 def mode3():
      print('modo 3')
-     #ser.write(b"Manual\n")
-     os.system("python Modo3_Manual.py") 
+     ser.write(b"Manual\n")
+     #os.system("python Modo3_Manual.py") 
      #Se imprime el comando en el monitor serial con el fin de salirse del modo actual
      #ser.write(b"Atras\n")
      labelStatus.config(text='Check status: Modo 3 Completado')
