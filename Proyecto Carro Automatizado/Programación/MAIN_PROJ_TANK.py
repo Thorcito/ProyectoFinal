@@ -30,14 +30,19 @@ def mode2():
 # Función que se encarga de abrir el modo 3
 def mode3():
      print('modo 3')
-     ser.write(b"Manual\n")
+     #ser.write(b"Manual\n")
      #os.system("python Modo3_Manual.py") 
      #Se imprime el comando en el monitor serial con el fin de salirse del modo actual
      #ser.write(b"Atras\n")
      labelStatus.config(text='Check status: Modo 3 Completado')
+
+# Función que se encarga de salirse del auto o del manual
+def mode4():
+     #ser.write(b"Atras\n")
+     labelStatus.config(text='Check status: Salida correcta')
     
  # set de las dimensiones
-Window.geometry("400x270")
+Window.geometry("400x310")
 Window.title("Interfaz de Usuario")
 label = Label(Window,
               text ="Bienvenido al centro de comandos del K-M7G Behemoth")
@@ -66,7 +71,7 @@ btnM3.pack(pady = 10)
 # Botón que se encarga de salirse de modo, ya sea manual o auto
 btnQ = Button(Window,
              text ="Liberar Control",
-             command = ser.write(b"Atras\n"))
+             command = mode4)
 btnQ.pack(pady = 10)
 
 #Tag que me indica el status de la acción
@@ -77,7 +82,7 @@ labelStatus.pack(pady = 10)
 
 # Botón que se encarga de salirse de la ventana
 btnExit = Button(Window,
-             text ="Liberar Control",
-             command = Window.destroy)
+               text ="Cerrar Comando",
+               command = Window.destroy)
 btnExit.pack(pady = 10)
 mainloop()
