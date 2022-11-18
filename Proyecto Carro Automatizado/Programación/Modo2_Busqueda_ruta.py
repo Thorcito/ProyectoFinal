@@ -199,7 +199,7 @@ def buscarDesde(laberinto, filaInicio, columnaInicio):
             buscarDesde(laberinto, filaInicio, columnaInicio-1) or \
             buscarDesde(laberinto, filaInicio, columnaInicio+1)
     if encontrado:
-        laberinto.actualizarPosicion(filaInicio, columnaInicio, PARTE_DEL_CAMINO) or laberinto.actualizarPosicion(filaInicio, columnaInicio, OBSTACULO)
+        laberinto.actualizarPosicion(filaInicio, columnaInicio, PARTE_DEL_CAMINO)
     else:
         laberinto.actualizarPosicion(filaInicio, columnaInicio, CAJELLON_SIN_SALIDA)
     return encontrado
