@@ -17,7 +17,7 @@ def mode1():
      #ser.write(b"Auto\n")
      os.system("python Modo1_Seguimiento_ruta.py") 
      #ser.write(b"Atras\n")
-     labelStatus.config(text='Check status: Modo 1 Completado')
+     labelStatus.config(text='Check status: Modo 1 En Ejecución')
 
 # Función que se encarga de abrir el modo 2
 def mode2():
@@ -25,7 +25,7 @@ def mode2():
      #ser.write(b"Auto\n")
      os.system("python Modo2_Busqueda_ruta.py") 
      #ser.write(b"Atras\n")
-     labelStatus.config(text='Check status: Modo 2 Completado')
+     labelStatus.config(text='Check status: Modo 2 En Ejecución')
      
 # Función que se encarga de abrir el modo 3
 def mode3():
@@ -34,12 +34,12 @@ def mode3():
      #os.system("python Modo3_Manual.py") 
      #Se imprime el comando en el monitor serial con el fin de salirse del modo actual
      #ser.write(b"Atras\n")
-     labelStatus.config(text='Check status: Modo 3 Completado')
+     labelStatus.config(text='Check status: Modo 3 En Ejecución')
 
 # Función que se encarga de salirse del auto o del manual
 def mode4():
      #ser.write(b"Atras\n")
-     labelStatus.config(text='Check status: Salida correcta')
+     labelStatus.config(text='Check status: Cambio de Modo Ejecutado')
     
  # set de las dimensiones
 Window.geometry("400x310")
@@ -70,7 +70,7 @@ btnM3.pack(pady = 10)
 
 # Botón que se encarga de salirse de modo, ya sea manual o auto
 btnQ = Button(Window,
-             text ="Liberar Control",
+             text ="Cambio de Control",
              command = mode4)
 btnQ.pack(pady = 10)
 
