@@ -20,10 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module ExtendUnit_12to32_TB(
-    reg [11:0] Extender,  //entrada de 12 bits
-    wire [31:0] Extendido //salida de 32 bits
-    );
+module ExtendUnit_12to32_TB
+    reg [11:0] Extender;  //entrada de 12 bits
+    wire [31:0] Extendido; //salida de 32 bits
+    
     
 ExtendUnit_12to32 uut (
 //llamado de variables en el modulo del testbench correspondiente
