@@ -7,7 +7,7 @@ import tkinter as tk
 PARTE_DEL_CAMINO = '5'
 INTENTADO = '.'
 OBSTACULO = '1'
-OBSTACULO_2 = '0'
+BARRERA = '0'
 CAJELLON_SIN_SALIDA = '-'
 EXIT = '2'
 solucion = False
@@ -51,8 +51,10 @@ class Laberinto:
         self.wn.tracer(0)
         for y in range(self.filasEnLaberinto):
             for x in range(self.columnasEnLaberinto):
-                if self.listaLaberinto[y][x] == OBSTACULO or self.listaLaberinto[y][x] == OBSTACULO_2:
+                if self.listaLaberinto[y][x] == BARRERA:
                     self.dibujarCajaCentrada(x+self.xTranslate,-y+self.yTranslate,'purple')
+                elif self.listaLaberinto[y][x] == OBSTACULO:
+                    self.dibujarCajaCentrada(x+self.xTranslate,-y+self.yTranslate,'yellow')
         self.t.color('black')
         self.t.fillcolor('blue')
         self.wn.update()
@@ -87,7 +89,7 @@ class Laberinto:
         if val == PARTE_DEL_CAMINO:
             color = 'green'
         elif val == OBSTACULO:
-            color = 'red'
+            color = 'blue'
         elif val == INTENTADO:
             color = 'black'
         elif val == CAJELLON_SIN_SALIDA:
@@ -102,13 +104,17 @@ class Laberinto:
         if self.listaLaberinto[fila][columna] == EXIT:
             return True
 
+    def esObstaculo(self,fila,columna):
+        if self.listaLaberinto[fila][columna] == OBSTACULO:
+            return True
+
     def __getitem__(self,indice):
         return self.listaLaberinto[indice]
 
 ##################################################################################################################################################
 
-#bloque de entrada del usuario
-def devolucionMR():  #devuelve el mapa resuelto
+# Bloque de entrada del usuario
+def devolucionMR():  # Devuelve el mapa resuelto
     try:
         solucion==True
         mapSolved = miLaberinto.listaLaberinto
@@ -117,28 +123,28 @@ def devolucionMR():  #devuelve el mapa resuelto
     except:
         pass
 
-def validacion(usuarioFin, ejex, ejey, info):  #valida que las entradas sean las correctas
+def validacion(usuarioFin, ejex, ejey, info):  # Valida que las entradas sean las correctas
     try:
         x = int(ejex.get())
         y = int(ejey.get())
 
-        #aqui va la funcion que ingresa el punto de inicio despues de validar
-        #que el espacio no se encuentre ocupado por una barrera\
+        # Aqui va la funcion que ingresa el punto de inicio despues de validar
+        # Que el espacio no se encuentre ocupado por una barrera
         if x<len(miLaberinto.listaLaberinto) and x!=5:
             if y<len(miLaberinto.listaLaberinto[1]) and y!=5:
                 if miLaberinto.listaLaberinto[x][y] == '':
-                    miLaberinto.listaLaberinto[x][y] = EXIT
                     info.config(text='La coordenada es valida')
+                    miLaberinto.listaLaberinto[x][y] = EXIT
                     usuarioFin.destroy()
                     solucion = buscarDesde(miLaberinto, miLaberinto.filaInicio, miLaberinto.columnaInicio)
                     devolucionMR()
 
                 else:
-                    info.config(text='La coordenada se encuentra en una barrera del mapa')
+                    info.config(text='La coordenada no se encuentra libre')
         else:
             info.config(text='La coordenada no se encuentra dentro del mapa')
     except ValueError:
-       info.config(text='La coordenada no es valida')
+       info.config(text='La coordenada no es válida')
 
 
 def puntoFin():  #le permite al usuario escoger la posición final o de salida
@@ -168,17 +174,22 @@ def puntoFin():  #le permite al usuario escoger la posición final o de salida
 
 def buscarDesde(laberinto, filaInicio, columnaInicio):
     laberinto.actualizarPosicion(filaInicio, columnaInicio)
-   #  Verificar casos base:
-   #  1. Hemos tropezado con un obstáculo, devolver False
-    if laberinto[filaInicio][columnaInicio] == OBSTACULO or laberinto[filaInicio][columnaInicio] == OBSTACULO_2:
+    #  Verificar casos base:
+    # 1. Hemos tropezado con un barrera, devolver False
+    if laberinto[filaInicio][columnaInicio] == BARRERA:
         return False
-    #  2. Hemos encontrado un cuadrado que ya ha sido explorado
+    # 2. Hemos encontrado un cuadrado que ya ha sido explorado
     if laberinto[filaInicio][columnaInicio] == INTENTADO:
         return False
-    # 3. Éxito, un borde exterior no ocupado por un obstáculo
+    # 3. Hemos encontrado un obstáculo removible
+    if laberinto.esObstaculo(filaInicio,columnaInicio):
+        laberinto.actualizarPosicion(filaInicio, columnaInicio, OBSTACULO)
+        return True
+    # 4. Éxito, un borde exterior no ocupado por un obstáculo
     if laberinto.esSalida(filaInicio,columnaInicio):
         laberinto.actualizarPosicion(filaInicio, columnaInicio, PARTE_DEL_CAMINO)
         return True
+
     laberinto.actualizarPosicion(filaInicio, columnaInicio, INTENTADO)
 
     # De lo contrario, use cortocircuitos lógicos para probar cada
