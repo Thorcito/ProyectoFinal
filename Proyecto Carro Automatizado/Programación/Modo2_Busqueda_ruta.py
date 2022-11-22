@@ -11,7 +11,7 @@ BARRERA = '0'
 CAJELLON_SIN_SALIDA = '-'
 EXIT = '2'
 solucion = False
-
+MapClean = []
 direccionmapa = []
 
 class Laberinto:
@@ -114,12 +114,30 @@ class Laberinto:
 
 ##################################################################################################################################################
 
+##################################################################################################################################################
+
+def sendCommand(step):
+    total = len(step)
+    for i in range (total):
+        stepin = step.pop()
+        print(stepin)
+        #ser.write(b"stepin\n")
+        # El tiempo de espera para enviar las señales, en segundos
+        # time.sleep(5) 
+
 # Bloque de entrada del usuario
-def devolucionMR():  # Devuelve el mapa resuelto
+def mapClean():
+    with open('Maps_Mode2(b).csv') as f:
+        reader = csv.reader(f, delimiter=";")
+        for row in reader:
+            MapClean.append(row)
+
+# Devuelve el mapa resuelto
+def devolucionMR(): 
     try:
         solucion==True
         mapSolved = miLaberinto.listaLaberinto
-        print(mapSolved)
+        #print(mapSolved)
         return mapSolved
     except:
         pass
@@ -135,11 +153,12 @@ def validacion(usuarioFin, ejex, ejey, info):  # Valida que las entradas sean la
             if y<len(miLaberinto.listaLaberinto[1]) and y!=5:
                 if miLaberinto.listaLaberinto[x][y] == '':
                     info.config(text='La coordenada es valida')
+                    mapClean()
                     miLaberinto.listaLaberinto[x][y] = EXIT
+                    MapClean[x][y] = EXIT
                     usuarioFin.destroy()
                     solucion = buscarDesde(miLaberinto, miLaberinto.filaInicio, miLaberinto.columnaInicio, 'inicio')
                     devolucionMR()
-
                 else:
                     info.config(text='La coordenada no se encuentra libre')
         else:
@@ -185,11 +204,10 @@ def buscarDesde(laberinto, filaInicio, columnaInicio, paso):
     # 3. Hemos encontrado un obstáculo removible
     if laberinto.esObstaculo(filaInicio,columnaInicio):
         laberinto.actualizarPosicion(filaInicio, columnaInicio, OBSTACULO)
-        
     # 4. Éxito, una celda no ocupada por un obstáculo
     if laberinto.esSalida(filaInicio,columnaInicio):
         laberinto.actualizarPosicion(filaInicio, columnaInicio, PARTE_DEL_CAMINO)
-        direccionmapa.append(paso)
+        direccionmapa.append('n '+paso)
         return True
 
     laberinto.actualizarPosicion(filaInicio, columnaInicio, INTENTADO)
@@ -201,8 +219,12 @@ def buscarDesde(laberinto, filaInicio, columnaInicio, paso):
             buscarDesde(laberinto, filaInicio, columnaInicio-1, 'izquierda') or \
             buscarDesde(laberinto, filaInicio, columnaInicio+1, 'derecha')
     if encontrado:
-        laberinto.actualizarPosicion(filaInicio, columnaInicio, PARTE_DEL_CAMINO)
-        direccionmapa.append(paso)
+        if MapClean[filaInicio][columnaInicio] == '1':
+            laberinto.actualizarPosicion(filaInicio, columnaInicio, PARTE_DEL_CAMINO)
+            direccionmapa.append('s '+paso)
+        else: 
+            laberinto.actualizarPosicion(filaInicio, columnaInicio, PARTE_DEL_CAMINO)
+            direccionmapa.append('n '+paso)
     else:
         laberinto.actualizarPosicion(filaInicio, columnaInicio, CAJELLON_SIN_SALIDA)
     return encontrado
@@ -211,4 +233,4 @@ miLaberinto = Laberinto('Maps_Mode2(b).csv')
 miLaberinto.dibujarLaberinto()
 miLaberinto.actualizarPosicion(miLaberinto.filaInicio,miLaberinto.columnaInicio)
 puntoFin()
-print(direccionmapa)
+sendCommand(direccionmapa)
