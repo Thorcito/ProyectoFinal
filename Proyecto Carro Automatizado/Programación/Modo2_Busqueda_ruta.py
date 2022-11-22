@@ -12,6 +12,7 @@ CAJELLON_SIN_SALIDA = '-'
 EXIT = '2'
 solucion = False
 
+direccionmapa = []
 
 class Laberinto:
     def __init__(self,nombreArchivoLaberinto):
@@ -136,7 +137,7 @@ def validacion(usuarioFin, ejex, ejey, info):  # Valida que las entradas sean la
                     info.config(text='La coordenada es valida')
                     miLaberinto.listaLaberinto[x][y] = EXIT
                     usuarioFin.destroy()
-                    solucion = buscarDesde(miLaberinto, miLaberinto.filaInicio, miLaberinto.columnaInicio)
+                    solucion = buscarDesde(miLaberinto, miLaberinto.filaInicio, miLaberinto.columnaInicio, 'inicio')
                     devolucionMR()
 
                 else:
@@ -172,7 +173,7 @@ def puntoFin():  #le permite al usuario escoger la posición final o de salida
 
     usuarioFin.mainloop()
 
-def buscarDesde(laberinto, filaInicio, columnaInicio):
+def buscarDesde(laberinto, filaInicio, columnaInicio, paso):
     laberinto.actualizarPosicion(filaInicio, columnaInicio)
     #  Verificar casos base:
     # 1. Hemos tropezado con un barrera, devolver False
@@ -184,22 +185,24 @@ def buscarDesde(laberinto, filaInicio, columnaInicio):
     # 3. Hemos encontrado un obstáculo removible
     if laberinto.esObstaculo(filaInicio,columnaInicio):
         laberinto.actualizarPosicion(filaInicio, columnaInicio, OBSTACULO)
-        return True
-    # 4. Éxito, un borde exterior no ocupado por un obstáculo
+        
+    # 4. Éxito, una celda no ocupada por un obstáculo
     if laberinto.esSalida(filaInicio,columnaInicio):
         laberinto.actualizarPosicion(filaInicio, columnaInicio, PARTE_DEL_CAMINO)
+        direccionmapa.append(paso)
         return True
 
     laberinto.actualizarPosicion(filaInicio, columnaInicio, INTENTADO)
 
     # De lo contrario, use cortocircuitos lógicos para probar cada
     # dirección a su vez (si fuera necesario)
-    encontrado = buscarDesde(laberinto, filaInicio-1, columnaInicio) or \
-            buscarDesde(laberinto, filaInicio+1, columnaInicio) or \
-            buscarDesde(laberinto, filaInicio, columnaInicio-1) or \
-            buscarDesde(laberinto, filaInicio, columnaInicio+1)
+    encontrado = buscarDesde(laberinto, filaInicio-1, columnaInicio, 'arriba') or \
+            buscarDesde(laberinto, filaInicio+1, columnaInicio, 'abajo') or \
+            buscarDesde(laberinto, filaInicio, columnaInicio-1, 'izquierda') or \
+            buscarDesde(laberinto, filaInicio, columnaInicio+1, 'derecha')
     if encontrado:
         laberinto.actualizarPosicion(filaInicio, columnaInicio, PARTE_DEL_CAMINO)
+        direccionmapa.append(paso)
     else:
         laberinto.actualizarPosicion(filaInicio, columnaInicio, CAJELLON_SIN_SALIDA)
     return encontrado
@@ -208,3 +211,4 @@ miLaberinto = Laberinto('Maps_Mode2(b).csv')
 miLaberinto.dibujarLaberinto()
 miLaberinto.actualizarPosicion(miLaberinto.filaInicio,miLaberinto.columnaInicio)
 puntoFin()
+print(direccionmapa)

@@ -1,0 +1,501 @@
+[33mcommit 7fd26177c7f8c401da945a3743a5c40275974782[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Thu Nov 17 21:27:46 2022 -0600
+
+    limpieza modo 2
+
+[33mcommit 105f7f679d5c955c00e67094a7bd3923ef01dd1a[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Thu Nov 17 21:27:23 2022 -0600
+
+    limpieza modo 2
+
+[33mcommit 7f7ee72d81c162aa06881aba8cd093ff686777f5[m
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Thu Nov 17 18:57:05 2022 -0600
+
+    Se borró archivo innecesario de ensamble
+
+[33mcommit 381a99786fe0e696d64d502a3c8d0e52f4e14b38[m
+Author: Santi0612 <santiagoramirez0612@gmail.com>
+Date:   Thu Nov 17 17:21:16 2022 -0600
+
+    STLs corregidos
+
+[33mcommit 240446d608f31bb18e15946ba92e5ac342cd1fea[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Thu Nov 17 05:20:24 2022 -0600
+
+    me quiero matar ya paren porfa
+
+[33mcommit e1a5a59a26d8f7a1ff81bec97e2d51b0bf958c0d[m
+Author: Santi0612 <santiagoramirez0612@gmail.com>
+Date:   Thu Nov 17 04:29:34 2022 -0600
+
+    se agregaron los stl del sandwich
+
+[33mcommit 1b7b9f3a896f10be088461ad44d9078c20589a69[m
+Author: Santi0612 <santiagoramirez0612@gmail.com>
+Date:   Thu Nov 17 03:05:31 2022 -0600
+
+    sandwich actualizado
+
+[33mcommit c8bf8a5b63c5439d03d12d319508d4f7a573e0c9[m
+Author: Santi0612 <santiagoramirez0612@gmail.com>
+Date:   Thu Nov 17 01:26:37 2022 -0600
+
+    se agregaron archivos solid sandwich
+
+[33mcommit ff9dac4090c86b2830209241ea49f27b622d9448[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Thu Nov 17 00:43:00 2022 -0600
+
+    pruebas comunicación Rasp-ESP32
+
+[33mcommit adfa981341193f9a12384bd19d46642ad66e25c9[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Thu Nov 17 00:37:53 2022 -0600
+
+    pruebas comunicación Rasp-ESP32
+
+[33mcommit 2fc5f5d266ca6d65b2895f0957171d25c3c1a334[m
+Merge: fdb3c46 f6387af
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Thu Nov 17 00:35:17 2022 -0600
+
+    Merge branch 'master' of https://github.com/Thorcito/ProyectoFinal
+
+[33mcommit fdb3c4656de1c2892246e501fbc6b60382272042[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Thu Nov 17 00:34:50 2022 -0600
+
+    pruebas comunicación Rasp-ESP32
+
+[33mcommit f6387af7afd49f54ee9cc61ed883000d4ffeadab[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Thu Nov 17 00:22:26 2022 -0600
+
+    se agrego el pinon
+
+[33mcommit 5da59a03718353d687b7c87ec1593fbcd5658ba3[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Wed Nov 16 23:35:27 2022 -0600
+
+    pruebas comunicación Rasp-ESP32
+
+[33mcommit bc37ba8d6e3b6aa50ad343fbdaa36d4f5edd3c91[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Wed Nov 16 04:48:49 2022 -0600
+
+    se agrego la progra del ESP32 con los modos manual y automatico
+
+[33mcommit 6e5f7a117d4e78992f19c3207bb4f639296d308d[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Nov 15 12:25:21 2022 -0600
+
+    limpieza del carpeta
+
+[33mcommit e2c4af88b1e799289e9e2264afd2cd44ec126ad4[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Nov 15 09:09:57 2022 -0600
+
+    limpieza
+
+[33mcommit 746d8ddfc70c5c43d453154e396b302aa22265ac[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Mon Nov 14 22:18:39 2022 -0600
+
+    limpieza
+
+[33mcommit 25a6a2f653d3618c910675f29181dc45728d39a0[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Mon Nov 14 17:29:48 2022 -0600
+
+    limpieza de carpetas, se agrega el formato con calidad final
+
+[33mcommit 578da44d6d8f786e196d697a015ceb494b5cfc22[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Mon Nov 14 15:53:57 2022 -0600
+
+    se agregaron los stl del axe
+
+[33mcommit 65d012ea1e017ef524c16fa859e724cd5071df4b[m
+Merge: 1035c59 e384fcb
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Sun Nov 13 19:48:00 2022 -0600
+
+    Merge branch 'master' of https://github.com/Thorcito/ProyectoFinal
+
+[33mcommit 1035c59a55e3cc070c96d414af4908ac6dd19a9a[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Sun Nov 13 19:47:09 2022 -0600
+
+    Actualizacion Solid Files
+
+[33mcommit e384fcbd14a8f4f9ba2b29035853d5fed5fdaf1b[m
+Author: Rastmoag <randy.mora.aguero@estudiantec.cr>
+Date:   Sun Nov 13 14:38:33 2022 -0600
+
+    Se arregló el mem dump
+
+[33mcommit 5611147a965609904e411241d180ec198831dc5c[m
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Sat Nov 12 18:20:51 2022 -0600
+
+    Actualización Carpeta Listos Verilog
+
+[33mcommit 5d39ad4e5586c88688f0aa949d9b0f37bee9be9c[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Fri Nov 11 20:45:10 2022 -0600
+
+    Se agrego el sketch del prtotipo
+
+[33mcommit 0c4cc0ada58b047ba9e59086547fcbcac1e8ff6c[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Tue Oct 11 23:00:59 2022 -0600
+
+    se lee de un archivo csv en vez de texto
+
+[33mcommit a14b7aaf7cab98c445255a93fe1768ca165c3e18[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Oct 11 21:18:12 2022 -0600
+
+    nuevo csv
+
+[33mcommit 15a3e64290845ea104fb51e158355babaf879be8[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Oct 11 21:17:05 2022 -0600
+
+    nuevo csv
+
+[33mcommit 40c18674fa2fdc9b229e97531255f16b9194b5dd[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Oct 11 20:54:58 2022 -0600
+
+    csv nuevo para el segundo modo
+
+[33mcommit 48fdbba64c869b72a53a9ee8a1021c52b351e262[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Oct 11 19:34:28 2022 -0600
+
+    leve documentación
+
+[33mcommit 177ad2b1404cbe19edb43559e4c03ab351e4cc1f[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Oct 11 19:13:15 2022 -0600
+
+    modificación del código Interfaz, habían líneas extrañas
+
+[33mcommit e162fc6120a297049e540705cb44ae30330ce1d9[m
+Author: Rastmoag <randy.mora.aguero@estudiantec.cr>
+Date:   Sat Oct 8 22:41:00 2022 -0600
+
+    Se arregló el diagrama bonito
+
+[33mcommit 1b9ad168cec9ab9fd42b0841834122af0d78078a[m
+Merge: 7777e17 121682d
+Author: Rastmoag <randy.mora.aguero@estudiantec.cr>
+Date:   Fri Oct 7 22:52:19 2022 -0600
+
+    Merge branch 'master' of https://github.com/Thorcito/ProyectoFinal
+
+[33mcommit 7777e1764e4f02524e04701a31e4229e31b294d4[m
+Author: Rastmoag <randy.mora.aguero@estudiantec.cr>
+Date:   Fri Oct 7 22:51:32 2022 -0600
+
+    Se añadió Diseño Final - RiskV (Diagrama pasado en limpio
+
+[33mcommit 121682d3a60a7ed295c45d1983cc0746b0e8f996[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Thu Oct 6 21:07:13 2022 -0600
+
+    se agrego el main y main tb comentados
+
+[33mcommit fd4b5b6ba7c27087f9665ec3d45357ac5539648b[m
+Author: Rastmoag <randy.mora.aguero@estudiantec.cr>
+Date:   Thu Oct 6 19:34:25 2022 -0600
+
+    Solo falta comentar main y main_tb
+
+[33mcommit 226ff4513e414aaf1264ba18f7ca16d5fb3b07c9[m
+Author: Rastmoag <randy.mora.aguero@estudiantec.cr>
+Date:   Thu Oct 6 19:14:49 2022 -0600
+
+    Se arregló mem data para mostrar palabras, faltan comentar memdata,memdata_TB, y una señal de la UC
+
+[33mcommit 74a21c58127769dd218f08c96a9baa04a1bcb2fd[m
+Author: Rastmoag <randy.mora.aguero@estudiantec.cr>
+Date:   Thu Oct 6 18:42:39 2022 -0600
+
+    Se añadió un mux para el inmediato en la progra
+
+[33mcommit e7893a7b17d0b9f14d873e60c168ae85e744064a[m
+Author: Rastmoag <randy.mora.aguero@estudiantec.cr>
+Date:   Thu Oct 6 16:05:26 2022 -0600
+
+    Se corrigió el diseño final (mux de inmediatos) y el excel
+
+[33mcommit c0cccc11392a3652e398066b6e8fa6eb5eb42b22[m
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Thu Oct 6 15:20:01 2022 -0600
+
+    cambio nombre carpetas
+
+[33mcommit 52c93697ee3ceb5ee33cfc18a11040bac7f40f69[m
+Author: Rastmoag <randy.mora.aguero@estudiantec.cr>
+Date:   Thu Oct 6 15:14:27 2022 -0600
+
+    Se arregló mem data y se añadieron los tb
+
+[33mcommit 768c03fd53aa6344877dc062a016f39521d0e22e[m
+Author: Nador <nadiralfatec@estudiantec.cr>
+Date:   Thu Oct 6 02:13:41 2022 -0600
+
+    se agregaron los .v comentado junto con sus testbenches
+
+[33mcommit 309ed34cb2156ed80de4e981e24e4d81264b434a[m
+Author: Rastmoag <randy.mora.aguero@estudiantec.cr>
+Date:   Wed Oct 5 17:44:10 2022 -0600
+
+    Se agregaron los módulos y el TB del main
+
+[33mcommit b3efa7593064cb8f139b74599b74bcf2c33cf919[m
+Merge: 5f139a2 6bfcc3c
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Tue Oct 4 22:32:13 2022 -0600
+
+    Merge branch 'master' of https://github.com/Thorcito/ProyectoFinal
+
+[33mcommit 5f139a2fe1568328c1e4d74faf20020b20d323ff[m
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Tue Oct 4 22:32:00 2022 -0600
+
+    .
+
+[33mcommit 6bfcc3cd39495add731b11e34f0c8c365732345f[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Tue Oct 4 20:45:42 2022 -0600
+
+    se agrego el diseno final
+
+[33mcommit 9128393f8f272b94d9a96d6fb582c5b7c7031648[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Tue Oct 4 20:09:06 2022 -0600
+
+    se agrego el diseno final
+
+[33mcommit 88e176111c489f04f603028dbfd412e8dfbc91b3[m
+Merge: b484518 7cf2ac4
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Tue Oct 4 20:07:40 2022 -0600
+
+    Merge branch 'master' of https://github.com/Thorcito/ProyectoFinal
+
+[33mcommit b4845184427a56ded3162acdd10f9139cac7f776[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Tue Oct 4 20:07:18 2022 -0600
+
+    se agrego el diseno final
+
+[33mcommit 7cf2ac435934ecbcab029c8e3fe2d632fb3dd9df[m
+Author: Santi0612 <santiagoramirez0612@gmail.com>
+Date:   Tue Oct 4 19:49:27 2022 -0600
+
+    se borro archivo
+
+[33mcommit a81bd34b58b1754ecf0b78221569e8e7b7197977[m
+Author: Santi0612 <santiagoramirez0612@gmail.com>
+Date:   Tue Oct 4 18:45:15 2022 -0600
+
+    Se agregó el pdf con las propuestas de diseño
+
+[33mcommit 85dd8bf5e66afc8827afe3d4cd32d7bd262a7f94[m
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Tue Oct 4 16:42:04 2022 -0600
+
+    Modificacion en Control Unit
+
+[33mcommit 70a6980b6297903f476ce00edccd471fba1ef545[m
+Merge: ff55380 a753d11
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Mon Oct 3 21:17:24 2022 -0600
+
+    Se agreg+o carpeta para Proyecto RISCV
+
+[33mcommit ff55380548dad9e4045a209a8a0991a534be0d62[m
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Mon Oct 3 21:16:23 2022 -0600
+
+    Se agreg+o carpeta para Proyecto RISCV
+
+[33mcommit a753d119e6568e35ba3fc1fb12ed67ac86c65499[m
+Author: palmaresCR <73441272+palmaresCR@users.noreply.github.com>
+Date:   Mon Oct 3 20:51:05 2022 -0600
+
+    Delete Diagrama_Bloques_Hardware.docx
+    
+    Archivo innecesario
+
+[33mcommit a83e9963aa4ca02980f7fe3becf8207375e46136[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Thu Sep 29 22:10:35 2022 -0600
+
+    acomodo de la estructura del código
+
+[33mcommit c212c89af6b019cf00c3556ea44ebebbd83fb379[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Thu Sep 29 20:30:20 2022 -0600
+
+    listo el código, con la función devolución se puede obtener el path a seguir del carro
+
+[33mcommit 9f136484084947bd1ae9e82a2b5d8a14d52f9845[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Thu Sep 29 13:00:45 2022 -0600
+
+    actualizacion del algoritmo de busqueda de ruta
+
+[33mcommit 8083e2a2c2be3f88860e3456e4b940eab36cb9ab[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Wed Sep 28 19:00:35 2022 -0600
+
+    buscador de ruta
+
+[33mcommit 9472a48fed698c694063f8c8d03f0b99a8aa72e8[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Mon Aug 22 22:48:48 2022 -0600
+
+    se agregó la función paso siguiente y verificación de paso
+
+[33mcommit 965da3d7932366c6a24ef50abc3f7113637b03ce[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Thu Aug 11 22:31:44 2022 -0600
+
+    se comentó el código
+
+[33mcommit f6cc829cb7fd908a8ca37dbc4982760575fe76ed[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Thu Aug 11 21:15:20 2022 -0600
+
+    se le hizo un upgrade al código, se separó la interfaz del maincode
+
+[33mcommit b55154d7c3fd1ee1af0caedd3531a569e26cc590[m
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Wed Aug 10 21:25:11 2022 -0600
+
+    code update
+
+[33mcommit 31f90e77d18925d45f63f890ae551bd72a035519[m
+Merge: 4a689aa 8406bdf
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Wed Aug 10 20:35:58 2022 -0600
+
+    Merge branch 'master' of https://github.com/Thorcito/ProyectoFinal
+
+[33mcommit 4a689aad6349bf399de47e8c55640c0f4ce0b86c[m
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Wed Aug 10 20:35:36 2022 -0600
+
+    code update
+
+[33mcommit 8406bdf7e8f0f7686609b3105c2e42b5349440c6[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Wed Aug 10 20:33:33 2022 -0600
+
+    se agregro progra de inicio
+
+[33mcommit 8c786fef412bcb6740988fe2e32096a4599e5311[m
+Merge: e495baa 73b7dce
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Wed Aug 10 20:32:23 2022 -0600
+
+    Merge branch 'master' of https://github.com/Thorcito/ProyectoFinal
+
+[33mcommit e495baa4da325f79e7bd0988b4eef6b0242d86d8[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Wed Aug 10 20:32:17 2022 -0600
+
+    se agregro progra de inicio
+
+[33mcommit 73b7dcee12a0e366c06f512a541cd8c797b94f93[m
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Wed Aug 10 20:14:48 2022 -0600
+
+    unificación códigos
+
+[33mcommit 76a2e28eb8d9ae14336dc0494bef05f046ac2474[m
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Wed Aug 10 19:30:40 2022 -0600
+
+    funciones auxiliares
+
+[33mcommit 514c8e69589063950773514abca9eed78b47fb18[m
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Wed Aug 10 18:51:22 2022 -0600
+
+    diagrama de bloques de hardware
+
+[33mcommit 5f2e676b36d7cac433db168d0f31905486d0a6f9[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Wed Aug 10 18:48:02 2022 -0600
+
+    se limpio el documento
+
+[33mcommit e257f6293c07798a2c23f1dbf41b1b21ac9fdb3f[m
+Author: Kevin <kevsolano000@gmail.com>
+Date:   Wed Aug 10 18:45:53 2022 -0600
+
+    dorime
+
+[33mcommit ad57edab955c8f088c0cfc211003e360d9d85923[m
+Author: Santi0612 <santiagoramirez0612@gmail.com>
+Date:   Wed Aug 10 18:41:46 2022 -0600
+
+    unio santiago
+
+[33mcommit 52456acc7f51b839a7c8665711b411b8ef317f8b[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Aug 9 20:00:44 2022 -0600
+
+    código de lectura de CSV con interfaz2
+
+[33mcommit 2e21ab5ba970b7a88017b519ca02e7a2a1456a68[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Aug 9 19:59:11 2022 -0600
+
+    código de lectura de CSV con interfaz
+
+[33mcommit 0722b0e65b20141fb4d6d508d08483fd7a543463[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Aug 9 18:23:45 2022 -0600
+
+    intefaz semicompleta
+
+[33mcommit ad3f3e9173be444124251f88357bb6de0ce8b1e9[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Aug 9 18:00:53 2022 -0600
+
+    se agregó el Ejemplo de rutas
+
+[33mcommit eb89aca32bec677cb8307f863a003693da374355[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Aug 9 09:36:30 2022 -0600
+
+    info importante
+
+[33mcommit 116ad9ef3223a117a33d90c267f726c074ad6ea3[m
+Author: Tato2203 <arman2203@hotmail.com>
+Date:   Tue Aug 9 09:31:12 2022 -0600
+
+    investigación.1
+
+[33mcommit f9f5350539bbcc2e888c72daf875d52af43d648e[m
+Author: Tato <99569490+Tato2203@users.noreply.github.com>
+Date:   Tue Aug 9 08:56:08 2022 -0600
+
+    Investigación 1. Movimiento de motores
+
+[33mcommit 7348987ccd548137b747082627437c688cd68df7[m
+Author: Nadir <nadiralfatec@estudiantec.cr>
+Date:   Tue Aug 9 00:37:56 2022 -0600
+
+    first commit
