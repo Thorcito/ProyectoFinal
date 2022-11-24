@@ -1,4 +1,5 @@
 from Setup_Interfaz_Mode1 import *
+import time 
 
 #se definen las variables con las que se va a trabajar
 Matriz_trabajo = [[]]
@@ -6,6 +7,28 @@ Matriz_trabajo = [[]]
 color = 0 
 direccion = 0
 
+
+##
+def MORADO(fila,columna):
+    #avanzar hasta que se encuentre un cero, un borde, en la dirección respectiva
+    for i in range(columna, len(Matriz_trabajo[0])-1):
+        if direccion == 'arriba':
+            fila = fila-1
+            if detectar_color(Matriz_trabajo[fila][columna]) == 'gris':
+                #ser.write(b"stop\n") 
+            paso_siguiente(fila, columna) 
+            
+        if direccion == 'abajo':
+            fila = fila+1
+
+        if direccion == 'izquierda':
+            columna = columna-1
+
+        if direccion == 'derecha':   
+            columna = columna+1
+            if detectar_color(Matriz_trabajo[fila][columna])
+                #ser.write(b"direccion\n")
+                time.sleep(1)
 #Función auxiliar de AbrirCSV que permite traer la matriz de Interfaz.py
 def extraerMatriz():
     for fila in range (1, 6): #este rango definido permite validar que el mapa no se extienda de los parámetros establecidos 
@@ -92,21 +115,108 @@ def paso_siguiente(fila, columna):
     celda_actual = int(Matriz_trabajo[fila][columna]) 
     color = detectar_color(celda_actual)
     direccion = direccion_pasos(celda_actual)
+    if color == 'azul':
+        #ser.write(b"direccion\n")
+        verificación_celda(direccion, fila, columna)
+        time.sleep(1)
+        #ser.write(b"forward\n")
+        if direccion == 'arriba':
+            fila = fila-1
+
+        if direccion == 'abajo':
+            fila = fila+1
+
+        if direccion == 'izquierda':
+            columna = columna-1
+
+        if direccion == 'derecha':   
+            columna = columna+1
+
+    if color == 'verde':
+        #ser.write(b"direccion\n")
+        verificación_celda(direccion, fila, columna)
+        time.sleep(1)
+        #ser.write(b"forward\n")
+        if direccion == 'arriba':
+            fila = fila-1
+
+        if direccion == 'abajo':
+            fila = fila+1
+
+        if direccion == 'izquierda':
+            columna = columna-1
+
+        if direccion == 'derecha':   
+            columna = columna+1
+
+    if color == 'rojo': 
+        # Tiempo reglamentario
+        time.sleep(5)
+        #ser.write(b"direccion\n")
+        verificación_celda(direccion, fila, columna)
+        time.sleep(1)
+        #ser.write(b"forward\n")
+        if direccion == 'arriba':
+            fila = fila-1
+
+        if direccion == 'abajo':
+            fila = fila+1
+
+        if direccion == 'izquierda':
+            columna = columna-1
+
+        if direccion == 'derecha':   
+            columna = columna+1
+
+    if color == 'gris':
+        #ser.write(b"direccion\n")
+        verificación_celda(direccion, fila, columna)
+        time.sleep(1)
+        #ser.write(b"forward\n")
+        if direccion == 'arriba':
+            fila = fila-1
+
+        if direccion == 'abajo':
+            fila = fila+1
+
+        if direccion == 'izquierda':
+            columna = columna-1
+
+        if direccion == 'derecha':   
+            columna = columna+1
+
     if color == 'morado':
-        #avanzar hasta que se encuentre un cero, un borde, en la dirección respectiva
-        pass
-    else: 
-        if verificación_celda(color, direccion) == 1: 
-            pass #se procede con el movimiento a la siguiente celda
+        MORADO(fila,columna)
+
+    paso_siguiente(fila, columna)
 
 #Funcion auxiliar para detectar la direccion de los pasos segun el valor de la casilla
-def verificación_celda(color, direccion):
-    paso_aprobado = 0
-    if color == 'negro'or'gris':
-        pass #entonces no se puede alcanzar dicha casilla
-    else: 
-        paso_aprobado = 1
-        return paso_aprobado 
+def verificación_celda(direccion, fila, columna):
+
+    if direccion == 'arriba':
+        if detectar_color(Matriz_trabajo[fila-1][columna]) == 'gris': 
+        # golpe a la pared reglamentario
+        #ser.write(b"chop\n")
+
+    if direccion == 'abajo':
+        if detectar_color(Matriz_trabajo[fila+1][columna]) == 'gris': 
+        # golpe a la pared reglamentario
+        #ser.write(b"chop\n")
+
+    if direccion == 'izquierda':
+        if detectar_color(Matriz_trabajo[fila][columna-1]) == 'gris': 
+        # golpe a la pared reglamentario
+        #ser.write(b"chop\n")
+
+    if direccion == 'derecha':
+        if detectar_color(Matriz_trabajo[fila][columna+1]) == 'gris': 
+        # golpe a la pared reglamentario
+        #ser.write(b"chop\n")
+
+    if detectar_color(Matriz_trabajo[fila-1][columna]) == 'gris': 
+        # golpe a la pared reglamentario
+        #ser.write(b"chop\n")   
+    
 
 #Inicio del código se pide un mapa através de un CSV y la función main
 def __main__():
