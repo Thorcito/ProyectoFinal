@@ -1,5 +1,8 @@
 from Setup_Interfaz_Mode1 import *
 import time 
+import os
+import sys 
+import serial 
 
 #se definen las variables con las que se va a trabajar
 Matriz_trabajo = [[]]
@@ -7,6 +10,9 @@ Matriz_trabajo = [[]]
 color = 0 
 direccion = 0
 
+#se establece la comunicación serial
+#ser = serial.Serial('/dev/ttyUSB0',9600, timeout=1)
+#ser.flush()
 
 ##
 def MORADO(fila,columna):
@@ -17,7 +23,7 @@ def MORADO(fila,columna):
             if detectar_color(Matriz_trabajo[fila][columna]) == 'gris':
                 #ser.write(b"stop\n") 
             paso_siguiente(fila, columna) 
-            
+
         if direccion == 'abajo':
             fila = fila+1
 
