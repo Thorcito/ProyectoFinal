@@ -1,4 +1,4 @@
-import serial 
+#import serial 
 from tkinter import *
 import tkinter as tk
 
@@ -17,7 +17,9 @@ def validacion(usuarioIni, ejex, ejey, info):
             if y<=5 and y>=1:
               info.config(text='La coordenada es valida')
               ini=x*10+y
+              print(ini)
               #ser.write(b"ini\n")
+              usuarioIni.destroy()
             else:
               info.config(text='La coordenada en y no valida')
         else:
@@ -47,9 +49,11 @@ def puntoIni():
   info.pack(pady=10)
     
   # Botón que se encarga de ir a la función para validar las entradas del usuario
-  btn = Button(usuarioIni, text='Validar la coordenada', command=lambda: validacion(usuarioFin ,ejex, ejey, info))
+  btn = Button(usuarioIni, text='Validar la coordenada', command=lambda: validacion(usuarioIni ,ejex, ejey, info))
   btn.pack(pady=10)
 
-  usuarioFin.mainloop()
+  usuarioIni.mainloop()
 
 #ser.write(b"Manual\n")
+puntoIni()
+
