@@ -170,7 +170,16 @@ def devolucionMR():
         #print(mapSolved)
         return mapSolved
     except:
-        pass
+        emergente = Tk()
+        emergente.geometry('150x100')
+        emergente.title('Info usuario')
+
+        info = Label(emergente, text="No se encontro salida")
+        info.pack(pady=10)
+
+        btn = Button(emergente, text='Cerrar', command=emergente.destroy)
+        btn.pack(pady=10)
+        return solucion
 
 # Funcion que se encarga de validar que las entradas sean las correctas y se encuentren dentro del mapa 
 def validacion(usuarioFin, ejex, ejey, info): 
@@ -235,6 +244,8 @@ def buscarDesde(laberinto, filaInicio, columnaInicio, paso):
         return False
     # 2. Hemos encontrado un cuadrado que ya ha sido explorado
     if laberinto[filaInicio][columnaInicio] == INTENTADO:
+        return False
+    if laberinto[filaInicio][columnaInicio] == CAJELLON_SIN_SALIDA:
         return False
     # 3. Hemos encontrado un obstáculo removible
     if laberinto.esObstaculo(filaInicio,columnaInicio):
