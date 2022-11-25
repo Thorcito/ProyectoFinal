@@ -34,7 +34,7 @@ def mode3():
      # Se envía al ESP32 el modo que se va a utilizar para el Modo3 
      #ser.write(b"Manual\n")
      # Se deja la opción de ingresar un archivo py para el modo 3, en este caso no se va a utilizar 
-     #os.system("python Modo3_Manual.py") 
+     os.system("python Modo3_Manual.py") 
      labelStatus.config(text='Check status: Modo 3 En Ejecución')
 
 # Función que se encarga de salirse del auto o del manual
