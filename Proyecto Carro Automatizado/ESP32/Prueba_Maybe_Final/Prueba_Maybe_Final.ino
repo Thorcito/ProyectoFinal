@@ -27,6 +27,8 @@ int k_sig;                 //contador matriz columna
 int k_ant = 1;             //matriz columna inicial
 String x_entrante;
 String y_entrante;
+String uno;
+String dos;
 signed int nose = 0;  //posicion cardinal del robot para el modo manual
 
 //funcion de la interrupcion
@@ -658,7 +660,26 @@ void loop() {
         break;
       }
     }
-  } else {
+  } else if (instruccion.equalsIgnoreCase("AUTO2")){
+      Serial.println("Modo Automatico 2 Activado");
+      SEL = 1;
+      delay(1000);
+      while (SEL) {
+        Serial.println("Esperando Direccion: ");  //aqui se envia el dato por la raspi
+        while (Serial.available() == 0) {}        //aqui se envia el dato por la raspi
+        instruccion = Serial.readString();
+        instruccion.trim();
+        uno = instruccion.substring(0, instruccion.indexOf(" "));
+        dos = instruccion.substring(instruccion.indexOf(" ") + 1);
+        if (uno.equalsIgnoreCase("n")){
+          Mover_Motores_Auto(dos);
+        }
+        else if(uno.equalsIgnoreCase("s")){
+          Mover_Axe_Auto("chop");
+          Mover_Motores_Auto(dos);
+        }
+      }
+    } else {
     Serial.println("COMMANDO NO RECONOCIDO");
   }
 }
