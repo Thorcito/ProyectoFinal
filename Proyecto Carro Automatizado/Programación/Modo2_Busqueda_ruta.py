@@ -164,16 +164,14 @@ def mapClean():
 
 # Devuelve el mapa resuelto, con el camino utilizado 
 def devolucionMR(): 
-    try:
-        solucion==True
+    if  (solucion):
         mapSolved = miLaberinto.listaLaberinto
         #print(mapSolved)
         return mapSolved
-    except:
+    else:
         emergente = Tk()
         emergente.geometry('150x100')
         emergente.title('Info usuario')
-
         info = Label(emergente, text="No se encontro salida")
         info.pack(pady=10)
 
@@ -196,7 +194,7 @@ def validacion(usuarioFin, ejex, ejey, info):
                     mapClean()
                     miLaberinto.listaLaberinto[x][y] = EXIT
                     MapClean[x][y] = EXIT
-                    time.sleep(5)
+                    time.sleep(1)
                     usuarioFin.destroy()
                     solucion = buscarDesde(miLaberinto, miLaberinto.filaInicio, miLaberinto.columnaInicio, 'inicio')
                     devolucionMR()
