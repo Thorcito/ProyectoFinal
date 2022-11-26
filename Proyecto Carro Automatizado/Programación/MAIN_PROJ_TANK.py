@@ -1,8 +1,8 @@
 from tkinter import *
 from tkinter.ttk import *
 import os
-import sys 
-import serial 
+import sys
+#import serial
 
 # Crea el la ventana Tk
 Window = Tk()
