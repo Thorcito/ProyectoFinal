@@ -2,7 +2,7 @@ from Setup_Interfaz_Mode1 import *
 import time 
 import os
 import sys 
-import serial 
+#import serial 
 
 Matriz_trabajo = [[]]
 color = 0
@@ -13,142 +13,167 @@ direccion = 0
 
 #se definen las variables con las que se va a trabajar
 def paso_siguiente(fila, columna):
-    #mover el motor en la direccion correcta
-    celda_actual = int(Matriz_trabajo[fila][columna])
-    color = detectar_color(celda_actual)
-    direccion = direccion_pasos(celda_actual)
-    if color == 'azul':
-        #ser.write(b"direccion\n")
-        verificación_celda(direccion, fila, columna)
-        time.sleep(1)
-        #ser.write(b"forward\n")
-        if direccion == 'arriba':
-            fila = fila-1
+    print('step:  ' + Matriz_trabajo[fila][columna])
+    #mover el motor en la dirección correcta validando que no se encuentre vacía
+    if Matriz_trabajo[fila][columna] == '5':
+        #stop
+        pass
+    else:
+        celda_actual = int(Matriz_trabajo[fila][columna])
+        color = detectar_color(celda_actual)
+        direccion = direccion_pasos(celda_actual)
+        if color == 'azul':
+            #ser.write(b"direccion\n")
+            verificacion_celda(direccion, fila, columna)
+            time.sleep(1)
+            #ser.write(b"forward\n")
+            if direccion == 'arriba':
+                fila = fila-1
 
-        if direccion == 'abajo':
-            fila = fila+1
+            if direccion == 'abajo':
+                fila = fila+1
 
-        if direccion == 'izquierda':
-            columna = columna-1
+            if direccion == 'izquierda':
+                columna = columna-1
 
-        if direccion == 'derecha':
-            columna = columna+1
+            if direccion == 'derecha':
+                columna = columna+1
 
-    if color == 'verde':
-        #ser.write(b"direccion\n")
-        verificación_celda(direccion, fila, columna)
-        time.sleep(1)
-        #ser.write(b"forward\n")
-        if direccion == 'arriba':
-            fila = fila-1
+        if color == 'verde':
+            #ser.write(b"direccion\n")
+            verificacion_celda(direccion, fila, columna)
+            time.sleep(1)
+            #ser.write(b"forward\n")
+            if direccion == 'arriba':
+                fila = fila-1
 
-        if direccion == 'abajo':
-            fila = fila+1
+            if direccion == 'abajo':
+                fila = fila+1
 
-        if direccion == 'izquierda':
-            columna = columna-1
+            if direccion == 'izquierda':
+                columna = columna-1
 
-        if direccion == 'derecha':
-            columna = columna+1
+            if direccion == 'derecha':
+                columna = columna+1
 
-    if color == 'rojo':
-        # Tiempo reglamentario
-        time.sleep(5)
-        #ser.write(b"direccion\n")
-        verificación_celda(direccion, fila, columna)
-        time.sleep(1)
-        #ser.write(b"forward\n")
-        if direccion == 'arriba':
-            fila = fila-1
+        if color == 'rojo':
+            # Tiempo reglamentario
+            time.sleep(5)
+            #ser.write(b"direccion\n")
+            verificacion_celda(direccion, fila, columna)
+            time.sleep(1)
+            #ser.write(b"forward\n")
+            if direccion == 'arriba':
+                fila = fila-1
 
-        if direccion == 'abajo':
-            fila = fila+1
+            if direccion == 'abajo':
+                fila = fila+1
 
-        if direccion == 'izquierda':
-            columna = columna-1
+            if direccion == 'izquierda':
+                columna = columna-1
 
-        if direccion == 'derecha':
-            columna = columna+1
+            if direccion == 'derecha':
+                columna = columna+1
 
-    if color == 'gris':
-        #ser.write(b"direccion\n")
-        verificación_celda(direccion, fila, columna)
-        time.sleep(1)
-        #ser.write(b"forward\n")
-        if direccion == 'arriba':
-            fila = fila-1
+        if color == 'gris':
+            #ser.write(b"direccion\n")
+            verificacion_celda(direccion, fila, columna)
+            time.sleep(1)
+            #ser.write(b"forward\n")
+            if direccion == 'arriba':
+                fila = fila-1
 
-        if direccion == 'abajo':
-            fila = fila+1
+            if direccion == 'abajo':
+                fila = fila+1
 
-        if direccion == 'izquierda':
-            columna = columna-1
+            if direccion == 'izquierda':
+                columna = columna-1
 
-        if direccion == 'derecha':
-            columna = columna+1
+            if direccion == 'derecha':
+                columna = columna+1
 
-    if color == 'morado':
-        MORADO(fila,columna)
+        if color == 'morado':
+            MORADO(direccion, fila,columna)
 
-    paso_siguiente(fila, columna)
-
-
-
+        paso_siguiente(fila, columna)
 
 #Funcion auxiliar para detectar la direccion de los pasos segun el valor de la casilla
 def verificacion_celda(direccion, fila, columna):
 
     if direccion == 'arriba':
         if detectar_color(Matriz_trabajo[fila-1][columna]) == 'gris':
-        # golpe a la pared reglamentario
-        #ser.write(b"chop\n")
+            print(1)
+            # golpe a la pared reglamentario
+            #ser.write(b"chop\n")
 
     if direccion == 'abajo':
         if detectar_color(Matriz_trabajo[fila+1][columna]) == 'gris':
-        # golpe a la pared reglamentario
-        #ser.write(b"chop\n")
+            print(1)
+            # golpe a la pared reglamentario
+            #ser.write(b"chop\n")
 
     if direccion == 'izquierda':
         if detectar_color(Matriz_trabajo[fila][columna-1]) == 'gris':
-        # golpe a la pared reglamentario
-        #ser.write(b"chop\n")
+            print(1)
+            # golpe a la pared reglamentario
+            #ser.write(b"chop\n")
 
     if direccion == 'derecha':
         if detectar_color(Matriz_trabajo[fila][columna+1]) == 'gris':
-        # golpe a la pared reglamentario
-        #ser.write(b"chop\n")
+            print(1)
+            # golpe a la pared reglamentario
+            #ser.write(b"chop\n")
 
-    if detectar_color(Matriz_trabajo[fila-1][columna]) == 'gris':
-##
+    ##
 
 def MORADO(direccion,fila,columna):
-    #avanzar hasta que se encuentre un cero, un borde, en la direccion respectiva
-        if direccion == 'arriba':
-            while fila>0:
+    #avanzar hasta que se encuentre un cero, un borde, en la dirección respectiva
+    if direccion == 'arriba':
+        while fila>=0:
+            if fila == 0:
+                pass
+            else:
+                print('fila: ', fila, 'columna: ',columna)
                 # ser.write(b"direccion\n")
+                time.sleep(1.7)
                 fila=fila-1
 
-            paso_siguiente(fila, columna)
+        paso_siguiente(fila, columna)
+    
 
-        if direccion == 'abajo':
-            while fila < 4:
-                # ser.write(b"direccion\n")
-                fila = fila + 1
-            paso_siguiente(fila, columna)
+    if direccion == 'abajo':
+        while fila<=5:
+            print(fila, columna)
+            # ser.write(b"direccion\n")
+            time.sleep(1.7)
+            fila=fila+1
 
-        if direccion == 'izquierda':
-            while columna > 0:
-                # ser.write(b"direccion\n")
-                columna = columna - 1
-            paso_siguiente(fila, columna)
+        paso_siguiente(fila, columna)
 
-        if direccion == 'derecha':
-            while columna < 4:
+
+    if direccion == 'izquierda':
+        while fila>=0:
+            print(fila, columna)
+            # ser.write(b"direccion\n")
+            time.sleep(1.7)
+            columna=columna-1
+
+        paso_siguiente(fila, columna)
+
+
+    if direccion == 'derecha':
+        while fila<=5:
+            if fila == 5:
+                pass
+            else:
+                print(fila, columna)
                 # ser.write(b"direccion\n")
-                columna = columna + 1
-            paso_siguiente(fila, columna)
+                time.sleep(1.7)
+                columna=columna+1
+
+        paso_siguiente(fila, columna)
+
 #Funcion auxiliar de AbrirCSV que permite traer la matriz de Interfaz.py
-
 def extraerMatriz():
     for fila in range (1, 6): #este rango definido permite validar que el mapa no se extienda de los parametros establecidos
         nuevo_valor = sacarElementos(fila)  #se obtienen la filas de la matriz extraida
@@ -208,10 +233,6 @@ def detectar_color(valor_casilla_excel_read):
         return "valor casilla no es int"
 #Funcion auxiliar para detectar la direccion de los pasos segun el valor de la casilla
 
-
-
-
-
 def direccion_pasos(valor_casilla_excel_read):
         if type(valor_casilla_excel_read) == int:
                 direccion = 0;
@@ -231,9 +252,6 @@ def direccion_pasos(valor_casilla_excel_read):
                         return "direccion no detectada"
         else:
                 return "valor casilla no es un int"
-# golpe a la pared reglamentario
-        #ser.write(b"chop\n")
-
 
 #Inicio del codigo se pide un mapa atraves de un CSV y la funcion main
 def __main__():

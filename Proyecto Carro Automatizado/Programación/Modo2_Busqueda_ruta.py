@@ -163,8 +163,8 @@ def mapClean():
             MapClean.append(row)
 
 # Devuelve el mapa resuelto, con el camino utilizado 
-def devolucionMR(): 
-    if  (solucion):
+def devolucionMR(solucion): 
+    if solucion:
         mapSolved = miLaberinto.listaLaberinto
         #print(mapSolved)
         return mapSolved
@@ -197,7 +197,7 @@ def validacion(usuarioFin, ejex, ejey, info):
                     time.sleep(1)
                     usuarioFin.destroy()
                     solucion = buscarDesde(miLaberinto, miLaberinto.filaInicio, miLaberinto.columnaInicio, 'inicio')
-                    devolucionMR()
+                    devolucionMR(solucion)
                 else:
                     info.config(text='La coordenada no se encuentra libre')
         else:
@@ -243,6 +243,7 @@ def buscarDesde(laberinto, filaInicio, columnaInicio, paso):
     # 2. Hemos encontrado un cuadrado que ya ha sido explorado
     if laberinto[filaInicio][columnaInicio] == INTENTADO:
         return False
+
     if laberinto[filaInicio][columnaInicio] == CAJELLON_SIN_SALIDA:
         return False
     # 3. Hemos encontrado un obstáculo removible
