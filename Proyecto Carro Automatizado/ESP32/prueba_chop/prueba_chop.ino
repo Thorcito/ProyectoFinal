@@ -15,6 +15,7 @@ int posicion_X = 0;  //VARIABLE CON POSICION X
 int posicion_Y = 0;  //VARIABLE CON POSICION Y
 String instruccion;  //String de Instruccion proporcionado por la Raspi
 String comando;      //
+String mov_chop;
 int SEL = 0;         //VARIABLE PARA PERMANCER EN ALGUN MODO
 unsigned long time_1;
 unsigned long time_2;
@@ -568,6 +569,148 @@ void Mover_Motores_Auto(String instr) {
   }
 }
 
+void Mover_Auto_Chop (String mov_chop){
+  Serial.print("Giro a hacia ");
+  Serial.print(mov_chop);
+  Serial.println(" para chopear");
+  switch (nose) {
+    case 0:
+      if (mov_chop == "abajo") {
+        nose = nose + 2;
+        right_auto();
+        Motor_OFF();
+        right_auto();
+        Motor_OFF();
+        front_auto();
+        break;
+      } else if (mov_chop == "derecha") {
+        nose = nose + 1;
+        right_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "izquierda") {
+        nose = nose - 1;
+        left_auto();
+        Motor_OFF();
+        break;
+      }
+    case 1:
+      if (mov_chop == "arriba") {
+        nose = nose - 1;
+        left_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "abajo") {
+        nose = nose + 1;
+        right_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "izquierda") {
+        nose = nose - 2;
+        left_auto();
+        Motor_OFF();
+        left_auto();
+        Motor_OFF();
+        break;
+      }
+    case 2:
+      if (mov_chop == "arriba") {
+        nose = nose - 2;
+        right_auto();
+        Motor_OFF();
+        right_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "derecha") {
+        nose = nose - 1;
+        left_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "izquierda") {
+        nose = nose + 1;
+        right_auto();
+        Motor_OFF();
+        break;
+      } 
+    case 3:
+      if (mov_chop == "arriba") {
+        nose = nose - 3;
+        right_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "abajo") {
+        nose = nose - 1;
+        left_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "derecha") {
+        nose = nose - 2;
+        left_auto();
+        Motor_OFF();
+        left_auto();
+        Motor_OFF();
+        break;
+      }
+    case -1:
+      if (mov_chop == "arriba") {
+        nose = nose + 1;
+        right_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "abajo") {
+        nose = nose - 1;
+        left_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "derecha") {
+        nose = nose - 2;
+        left_auto();
+        Motor_OFF();
+        left_auto();
+        Motor_OFF();
+        break;
+      } 
+    case -2:
+      if (mov_chop == "arriba") {
+        nose = nose + 2;
+        right_auto();
+        Motor_OFF();
+        right_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "derecha") {
+        nose = nose - 1;
+        left_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "izquierda") {
+        nose = nose + 1;
+        right_auto();
+        Motor_OFF();
+        break;
+      }
+    case -3:
+      if (mov_chop == "arriba") {
+        nose = nose + 3;
+        left_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "abajo") {
+        nose = nose + 1;
+        right_auto();
+        Motor_OFF();
+        break;
+      } else if (mov_chop == "izquierda") {
+        nose = nose + 2;
+        left_auto();
+        Motor_OFF();
+        left_auto();
+        Motor_OFF();
+        break;
+      }  
+  }
+}
+
 void Mover_Axe_Auto(String cmd) {
   if (cmd == "chop") {
     AXE.write(180);
@@ -649,14 +792,27 @@ void loop() {
       while (Serial.available() == 0) {}        //aqui se envia el dato por la raspi
       instruccion = Serial.readString();
       instruccion.trim();
-      Serial.println(instruccion);
-      Mover_Motores_Auto(instruccion);
-      Mover_Axe_Auto(instruccion);
-      Serial.println(nose);
-      if (instruccion.equalsIgnoreCase("ATRAS")) {
+      if (instruccion.equalsIgnoreCase("chop")) {
+        while (Serial.available() == 0) {} 
+        mov_chop = Serial.readString();
+        mov_chop.trim();
+        Mover_Auto_Chop(mov_chop);
+        Mover_Axe_Auto("chop");
+        front_auto();
+        Motor_OFF();
+        Serial.print("NOSE: ");
+        Serial.println(nose);
+      }
+      else if (instruccion.equalsIgnoreCase("ATRAS")) {
         Motor_OFF();
         SEL = 0;
         break;
+      }
+      else {
+        Serial.println(instruccion);
+        Mover_Motores_Auto(instruccion);
+        Serial.print("NOSE: ");
+        Serial.println(nose);
       }
     }
   } else if (instruccion.equalsIgnoreCase("AUTO2")){
@@ -674,8 +830,17 @@ void loop() {
           Mover_Motores_Auto(dos);
         }
         else if(uno.equalsIgnoreCase("s")){
+          Mover_Auto_Chop(dos);
           Mover_Axe_Auto("chop");
-          Mover_Motores_Auto(dos);
+          front_auto();
+          Motor_OFF();
+          Serial.print("NOSE: ");
+          Serial.println(nose);
+        }
+        else if (instruccion.equalsIgnoreCase("ATRAS")) {
+          Motor_OFF();
+          SEL = 0;
+          break;
         }
       }
     } else {
